@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Schema dell'ecosistema AI.CREA.IT">
+  <rect width="800" height="600" fill="#F2F5F3"/>
+
+  <!-- griglia leggera -->
+  <g stroke="#1C1B18" stroke-opacity=".055" stroke-width="1">
+    <path d="M0 100H800M0 200H800M0 300H800M0 400H800M0 500H800"/>
+    <path d="M100 0V600M200 0V600M300 0V600M400 0V600M500 0V600M600 0V600M700 0V600"/>
+  </g>
+
+  <!-- anelli concentrici attorno al centro -->
+  <g fill="none" stroke="#1F4D3A" stroke-opacity=".16">
+    <circle cx="400" cy="290" r="96"/>
+    <circle cx="400" cy="290" r="156" stroke-dasharray="2 7"/>
+    <circle cx="400" cy="290" r="228" stroke-dasharray="2 11" stroke-opacity=".1"/>
+  </g>
+
+  <!-- collegamenti verso i quattro nodi -->
+  <g stroke="#1F4D3A" stroke-opacity=".42" stroke-width="1.2" fill="none">
+    <path d="M400 290 L192 180"/>
+    <path d="M400 290 L496 132"/>
+    <path d="M400 290 L304 384"/>
+    <path d="M400 290 L608 348"/>
+  </g>
+
+  <!-- aloni dei nodi (i pallini numerati stanno sopra, in HTML) -->
+  <g fill="#1F4D3A" fill-opacity=".07">
+    <circle cx="192" cy="180" r="46"/>
+    <circle cx="496" cy="132" r="46"/>
+    <circle cx="304" cy="384" r="46"/>
+    <circle cx="608" cy="348" r="46"/>
+  </g>
+  <g fill="none" stroke="#1F4D3A" stroke-opacity=".3" stroke-width="1">
+    <circle cx="192" cy="180" r="30"/>
+    <circle cx="496" cy="132" r="30"/>
+    <circle cx="304" cy="384" r="30"/>
+    <circle cx="608" cy="348" r="30"/>
+  </g>
+
+  <!-- nucleo -->
+  <circle cx="400" cy="290" r="60" fill="#1C1B18"/>
+  <circle cx="400" cy="290" r="68" fill="none" stroke="#C9A227" stroke-opacity=".8" stroke-width="1.2"/>
+  <text x="400" y="284" text-anchor="middle" font-family="Georgia, 'Bodoni Moda', serif" font-size="15"
+        letter-spacing="2.4" fill="#F2F5F3">AI.CREA</text>
+  <text x="400" y="306" text-anchor="middle" font-family="Georgia, 'Bodoni Moda', serif" font-size="15"
+        letter-spacing="2.4" fill="#C9A227">.IT</text>
+
+  <!-- etichette dei nodi -->
+  <g font-family="'Inter', Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="2.6"
+     fill="#1C1B18" fill-opacity=".62">
+    <text x="192" y="238" text-anchor="middle">INSTAGRAM</text>
+    <text x="496" y="190" text-anchor="middle">TIKTOK</text>
+    <text x="304" y="442" text-anchor="middle">E-COMMERCE</text>
+    <text x="608" y="406" text-anchor="middle">CAMPAGNE</text>
+  </g>
+
+  <!-- strumenti, in basso -->
+  <g font-family="'Inter', Helvetica, Arial, sans-serif" font-size="9.5" letter-spacing="2.2"
+     fill="#1C1B18" fill-opacity=".34">
+    <text x="48" y="556">MIDJOURNEY</text>
+    <text x="188" y="556">FLUX</text>
+    <text x="268" y="556">HIGGSFIELD</text>
+    <text x="408" y="556">KREA</text>
+    <text x="488" y="556">RUNWAY</text>
+    <text x="604" y="556">SEEDANCE</text>
+  </g>
+  <path d="M40 528H760" stroke="#1C1B18" stroke-opacity=".12" stroke-width="1"/>
+
+  <!-- angolo alto a sinistra: chiave di lettura -->
+  <g font-family="'Inter', Helvetica, Arial, sans-serif" font-size="9.5" letter-spacing="2.4"
+     fill="#1F4D3A" fill-opacity=".7">
+    <text x="40" y="52">ECOSISTEMA</text>
+  </g>
+  <path d="M40 62H132" stroke="#1F4D3A" stroke-opacity=".45" stroke-width="1"/>
+</svg>
