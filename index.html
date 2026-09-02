@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI.CREA.IT — L'arte di farsi notare | AI Creative Studio</title>
+<meta name="description" content="AI Creative Studio of One. Foto e video AI di qualità editoriale per brand di profumeria, gioielleria, beauty, matrimoni, hotel boutique e cantine in Italia.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI.CREA.IT — L'arte di farsi notare">
+<meta property="og:description" content="Non creiamo contenuti, creiamo desiderio. Foto e video AI per brand luxury e lifestyle in Italia.">
+<meta property="og:image" content="immagini/og-cover.jpg">
+<meta name="theme-color" content="#1C1B18">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Inter:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- SEO: testo completo, visivamente nascosto -->
+<h1 class="sr-only">AI.CREA.IT — AI Creative Studio of One. Foto e video generati con intelligenza artificiale per brand di profumeria, gioielleria, beauty, matrimoni, hotel boutique e cantine in Italia.</h1>
+
+<!-- ============ PRELOADER ============ -->
+<div class="preloader" id="preloader">
+  <img class="preloader__mark" src="immagini/logo-monogram-gold.png" alt="AI.CREA.IT" width="256" height="262">
+  <div class="preloader__bar"><i id="preBar"></i></div>
+  <p class="preloader__txt">AI.CREA.IT</p>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="index.html" class="brand" aria-label="AI.CREA.IT — home">
+      <!-- SOSTITUIRE con immagini/logo-monogram-gold.png quando disponibile -->
+      <img class="brand__mark" src="immagini/logo-monogram-gold.png" alt="" width="256" height="262">
+      <span class="brand__name">AI.CREA.IT</span>
+    </a>
+    <div class="header__right">
+      <a href="brief.html" class="header__cta is-hidden--sm-down">Compila il brief</a>
+      <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MENU MODALE ============ -->
+<div class="modal modal--full" id="menu" role="dialog" aria-modal="true" aria-label="Menu di navigazione">
+  <div class="modal__bg" data-close-menu></div>
+  <button class="modal__close" data-close-menu aria-label="Chiudi il menu">
+    <svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <div class="modal__body">
+    <div class="container" style="width:100%">
+      <ul class="menu-list">
+        <li><a href="index.html" style="--d:.05s"><span>01</span>Home</a></li>
+        <li><a href="lavori.html" style="--d:.12s"><span>02</span>Lavori</a></li>
+        <li><a href="brief.html" style="--d:.19s"><span>03</span>Brief</a></li>
+        <li><a href="index.html#prezzi" style="--d:.26s"><span>04</span>Prezzi</a></li>
+        <li><a href="index.html#chi-siamo" style="--d:.33s"><span>05</span>Chi siamo</a></li>
+      </ul>
+    </div>
+    <div class="menu-foot">
+      <a href="mailto:ai.crea.it@gmail.com">ai.crea.it@gmail.com</a>
+      <span>
+        <a href="https://instagram.com/ai.crea.it" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://tiktok.com/@ai.crea.it" target="_blank" rel="noopener">TikTok</a>
+      </span>
+      <span>L'arte di farsi notare</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ 1. HERO ============ -->
+<section class="ui-dark hero sticky--under-next" id="home">
+  <div class="hero__media">
+    <!-- ▼ SLOT 01 — видео первого экрана -->
+    <video class="media-fill" data-slot="01" autoplay muted loop playsinline preload="metadata" poster="immagini/hero-poster.jpg" aria-label="AI.CREA.IT"><source src="video/hero.mp4" type="video/mp4"></video>
+  </div>
+
+  <div class="container hero__inner">
+    <p class="eyebrow hero__eyebrow reveal">AI Creative Studio of One · Italia</p>
+    <h2 class="h-hero hero__title reveal">L'arte<br>di farsi <span class="script" style="font-size:1.05em">notare</span></h2>
+    <p class="lead hero__sub reveal">Foto e video generati con AI, di qualità editoriale, per brand che vogliono sembrare più grandi di quello che sono. Senza set, senza fotografo, in 3–10 giorni.</p>
+  </div>
+
+  <div class="hero__scroll">
+    <span>Scorri</span>
+    <i></i>
+    <span>Non creiamo contenuti, creiamo desiderio</span>
+  </div>
+</section>
+
+<!-- ============ 2. MARQUEE NICCHIE ============ -->
+<section class="ui-light section--flush">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Profumeria</span><span>Gioielleria</span><span>Beauty</span><span>Matrimoni</span><span>Hotel Boutique</span><span>Cantine</span><span>Orologi</span>
+      <span>Profumeria</span><span>Gioielleria</span><span>Beauty</span><span>Matrimoni</span><span>Hotel Boutique</span><span>Cantine</span><span>Orologi</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. CHI SIAMO (sticky a due strati) ============ -->
+<section class="ui-dark" id="chi-siamo">
+  <h2 class="sr-only">Chi siamo — AI.CREA.IT è uno studio creativo di una persona più un sistema di assistenti AI specializzati.</h2>
+  <div class="sticky sticky--under-next" style="height:230vh">
+
+    <!-- strato 1: sfondo + primo blocco di testo -->
+    <div class="sticky__layer about__layer">
+      <div class="layer-bg">
+        <!-- ▼ SLOT 02 — ritratto/ambiente, verticale fullscreen -->
+        <picture class="media-fill parallax-image-move" data-slot="02"><source media="(max-width:979px)" srcset="immagini/about-bg-mobile.jpg"><img src="immagini/about-bg.jpg" alt="Direttrice creativa di AI.CREA.IT" loading="lazy"></picture>
+      </div>
+      <div class="container layer-content">
+        <div class="grid" style="width:100%">
+          <div class="col-4 col-md-6 about__panel reveal">
+            <!-- SOSTITUIRE con immagini/logo-leopard-a-gold.png -->
+            <img class="about__badge" src="immagini/logo-leopard-a-gold.png" alt="" width="512" height="534">
+            <p class="eyebrow">01 — Chi siamo</p>
+            <h3 class="h2" style="margin:var(--sp-s) 0">Uno studio<br>di una persona</h3>
+            <p class="lead">Dietro AI.CREA.IT c'è una direttrice creativa e una squadra di assistenti AI specializzati: strategia, prompt, produzione, revisione. Lavora come uno studio vero — senza i costi e i tempi di un'agenzia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- strato 2: secondo blocco, resta più a lungo -->
+    <div class="sticky__layer about__layer">
+      <div class="container layer-content">
+        <div class="grid" style="width:100%">
+          <div class="col-4 col-md-6 about__panel about__panel--2 reveal">
+            <p class="eyebrow">02 — Metodo</p>
+            <h3 class="h2" style="margin:var(--sp-s) 0">Ogni scatto<br>è scelto a mano</h3>
+            <p class="lead">L'AI genera. La direzione artistica decide. Nessuna immagine esce da qui prima di essere passata al vaglio: luce, materia, colore, credibilità. Se sembra un rendering, non è pronta.</p>
+            <p class="body" style="margin-top:var(--sp-m)">Il risultato deve leggersi come una copertina — non come un'illustrazione generata.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 4. ECOSISTEMA ============ -->
+<section class="ui-light section" id="ecosistema">
+  <div class="container">
+    <div class="grid">
+      <div class="col-4 col-md-5">
+        <p class="eyebrow reveal">03 — Ecosistema</p>
+        <h2 class="h2 reveal" style="margin:var(--sp-s) 0 var(--sp-l)">Dove vive<br>il contenuto</h2>
+        <ul class="eco__list" data-stagger>
+          <li data-eco="1"><span class="eco__num">01</span><span><span class="eco__ttl">Instagram</span><span class="eco__desc">Feed editoriale, reel di prodotto, storie dietro le quinte.</span></span></li>
+          <li data-eco="2"><span class="eco__num">02</span><span><span class="eco__ttl">TikTok</span><span class="eco__desc">Video verticali brevi, formato nativo, ritmo veloce.</span></span></li>
+          <li data-eco="3"><span class="eco__num">03</span><span><span class="eco__ttl">E-commerce</span><span class="eco__desc">Schede prodotto, packshot, lifestyle coordinati.</span></span></li>
+          <li data-eco="4"><span class="eco__num">04</span><span><span class="eco__ttl">Campagne</span><span class="eco__desc">Lanci, adv a pagamento, materiali per la stampa.</span></span></li>
+          <li data-eco="5"><span class="eco__num">05</span><span><span class="eco__ttl">Strumenti</span><span class="eco__desc">Midjourney, Flux, Higgsfield, Krea, Runway, Seedance.</span></span></li>
+        </ul>
+      </div>
+
+      <div class="col-4 col-md-6 start-md-7 reveal">
+        <div class="map" id="ecoMap">
+          <!-- ▼ SLOT 03 — schema/mappa ecosistema (SVG o PNG) -->
+          <img class="ph-fill" src="immagini/ecosistema.svg" alt="Schema dell'ecosistema AI.CREA.IT" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+          <button class="map__dot" style="left:24%; top:30%" data-tip="1" aria-label="Punto 1">1</button>
+          <button class="map__dot" style="left:62%; top:22%" data-tip="2" aria-label="Punto 2">2</button>
+          <button class="map__dot" style="left:38%; top:64%" data-tip="3" aria-label="Punto 3">3</button>
+          <button class="map__dot" style="left:76%; top:58%" data-tip="4" aria-label="Punto 4">4</button>
+
+          <div class="tooltip" data-tipfor="1"><p class="tooltip__ttl">Instagram</p><p class="tooltip__txt">Griglia 3×3 con ritmo 6:2:1 — contenuto utile, reel, editoriale.</p></div>
+          <div class="tooltip" data-tipfor="2"><p class="tooltip__ttl">TikTok</p><p class="tooltip__txt">Reel verticali fino a 15 secondi, con o senza voce AI.</p></div>
+          <div class="tooltip" data-tipfor="3"><p class="tooltip__ttl">E-commerce</p><p class="tooltip__txt">Set coordinati per scheda prodotto: packshot + lifestyle.</p></div>
+          <div class="tooltip" data-tipfor="4"><p class="tooltip__ttl">Campagne</p><p class="tooltip__txt">Lancio prodotto con volto AI del brand, in 7–10 giorni.</p></div>
+        </div>
+        <p class="text-small" style="margin-top:var(--sp-s)">Passa sopra i punti per esplorare</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. MANIFESTO ============ -->
+<section class="ui-dark manifesto">
+  <div class="container">
+    <p class="reveal">Non è solo<br>un'immagine.<br><span class="accent">È il modo in cui<br>il tuo brand<br>viene desiderato.</span></p>
+  </div>
+</section>
+
+<!-- ============ 6. STILE — galleria drag ============ -->
+<section class="ui-light section" id="stile">
+  <div class="container">
+    <div class="grid" style="margin-bottom:var(--sp-l)">
+      <div class="col-4 col-md-4">
+        <p class="eyebrow reveal">04 — Stile</p>
+        <h2 class="h2 reveal" style="margin-top:var(--sp-s)">Che aspetto<br>ha il lavoro</h2>
+      </div>
+      <div class="col-4 col-md-4 start-md-7">
+        <ul class="eco__list reveal">
+          <li><span class="eco__num">—</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">Luce editoriale</span></span></li>
+          <li><span class="eco__num">—</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">Materia reale</span></span></li>
+          <li><span class="eco__num">—</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">Palette controllata</span></span></li>
+          <li><span class="eco__num">—</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">Zero effetto rendering</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="drag js-cursor-button" id="dragGallery">
+      <div class="drag__track" id="dragTrack">
+        <!-- ▼ SLOT 05 — 8 immagini 3:4 · immagini/stile-01.jpg … stile-08.jpg -->
+        <figure class="drag__item"><img data-slot="05-1" class="ratio-3-4" src="immagini/stile-01.jpg" alt="Profumeria — AI.CREA.IT" loading="lazy" style="width:100%;height:100%;object-fit:cover"><figcaption><span>01 — Profumeria</span><span>2026</span></figcaption></figure>
+        <figure class="drag__item"><img data-slot="05-2" class="ratio-3-4" src="immagini/stile-02.jpg" alt="Gioielleria — AI.CREA.IT" loading="lazy" style="width:100%;height:100%;object-fit:cover"><figcaption><span>02 — Gioielleria</span><span>2026</span></figcaption></figure>
+        <figure class="drag__item"><img data-slot="05-3" class="ratio-3-4" src="immagini/stile-03.jpg" alt="Beauty — AI.CREA.IT" loading="lazy" style="width:100%;height:100%;object-fit:cover"><figcaption><span>03 — Beauty</span><span>2026</span></figcaption></figure>
+        <figure class="drag__item"><img data-slot="05-4" class="ratio-3-4" src="immagini/stile-04.jpg" alt="Matrimoni — AI.CREA.IT" loading="lazy" style="width:100%;height:100%;object-fit:cover"><figcaption><span>04 — Matrimoni</span><span>2026</span></figcaption></figure>
+        <figure class="drag__item"><img data-slot="05-5" class="ratio-3-4" src="immagini/stile-05.jpg" alt="Cantine — AI.CREA.IT" loading="lazy" style="width:100%;height:100%;object-fit:cover"><figcaption><span>05 — Cantine</span><span>2026</span></figcaption></figure>
+        <figure class="drag__item"><img data-slot="05-6" class="ratio-3-4" src="immagini/stile-06.jpg" alt="Hotel Boutique — AI.CREA.IT" loading="lazy" style="width:100%;height:100%;object-fit:cover"><figcaption><span>06 — Hotel Boutique</span><span>2026</span></figcaption></figure>
+        <figure class="drag__item"><img data-slot="05-7" class="ratio-3-4" src="immagini/stile-07.jpg" alt="Orologi — AI.CREA.IT" loading="lazy" style="width:100%;height:100%;object-fit:cover"><figcaption><span>07 — Orologi</span><span>2026</span></figcaption></figure>
+        <figure class="drag__item"><img data-slot="05-8" class="ratio-3-4" src="immagini/stile-08.jpg" alt="Profumeria — AI.CREA.IT" loading="lazy" style="width:100%;height:100%;object-fit:cover"><figcaption><span>08 — Profumeria</span><span>2026</span></figcaption></figure>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:var(--sp-s); margin-top:var(--sp-m); flex-wrap:wrap">
+      <p class="text-small">Portfolio · 7 nicchie — trascina per esplorare</p>
+      <a href="lavori.html" class="btn btn--link">Vedi tutti i lavori</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. SHOWREEL ============ -->
+<section class="ui-dark section--flush" id="showreel">
+  <div style="position:relative; height:100vh; height:100svh; overflow:hidden">
+    <!-- ▼ SLOT 04 — showreel loop muto (fondo sezione) -->
+    <video data-lazyplay data-slot="04" class="ph-fill" muted loop playsinline preload="none" poster="immagini/showreel-loop-poster.jpg" aria-label="Showreel AI.CREA.IT" style="width:100%;height:100%;object-fit:cover"><source src="video/showreel-loop.mp4" type="video/mp4"></video>
+    <div class="container" style="position:absolute; left:0; right:0; bottom:calc(46px * var(--scale)); z-index:3">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:var(--sp-m); flex-wrap:wrap">
+        <div>
+          <p class="eyebrow">05 — Showreel</p>
+          <p class="h3" style="margin-top:var(--sp-xs)">Un minuto,<br>tutto quello che facciamo</p>
+        </div>
+        <button class="btn btn--fill" data-open-video>
+          Guarda lo showreel
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. METODO / PROCESSO ============ -->
+<section class="ui-light section" id="metodo">
+  <div class="container">
+    <div class="grid">
+      <div class="col-4 col-md-5">
+        <div style="position:sticky; top:calc(120px * var(--scale))">
+          <p class="eyebrow reveal">06 — Metodo</p>
+          <h2 class="h2 reveal" style="margin:var(--sp-s) 0 var(--sp-m)">Cinque passaggi,<br>nessuna sorpresa</h2>
+          <div class="reveal">
+            <!-- ▼ SLOT 06 — immagine che cambia con lo step attivo -->
+            <img id="processImg" data-slot="06-1" src="immagini/metodo-01.jpg" alt="Fase del metodo" loading="lazy" style="width:100%;height:100%;object-fit:cover;aspect-ratio:3/4">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4 col-md-6 start-md-7">
+        <div class="process" id="process">
+          <div class="process__step is-active" data-step="1" data-label="Brief">
+            <span class="process__code">01</span>
+            <div>
+              <h3 class="h3">Brief</h3>
+              <p class="body" style="margin-top:var(--sp-xs)">Compili il modulo: prodotto, nicchia, riferimenti, tono. Rispondiamo entro 24 ore nei giorni lavorativi.</p>
+            </div>
+          </div>
+          <div class="process__step" data-step="2" data-label="Concept">
+            <span class="process__code">02</span>
+            <div>
+              <h3 class="h3">Concept</h3>
+              <p class="body" style="margin-top:var(--sp-xs)">Moodboard, palette e direzione di luce. Approvi la direzione prima che venga generato un solo scatto.</p>
+            </div>
+          </div>
+          <div class="process__step" data-step="3" data-label="Generazione">
+            <span class="process__code">03</span>
+            <div>
+              <h3 class="h3">Generazione</h3>
+              <p class="body" style="margin-top:var(--sp-xs)">Produzione dei set completi. Molti più scatti di quelli che consegniamo: la selezione è parte del lavoro.</p>
+            </div>
+          </div>
+          <div class="process__step" data-step="4" data-label="Post">
+            <span class="process__code">04</span>
+            <div>
+              <h3 class="h3">Post-produzione</h3>
+              <p class="body" style="margin-top:var(--sp-xs)">Colore, dettaglio, coerenza tra gli scatti, formati per ogni canale. Controllo qualità su ogni file.</p>
+            </div>
+          </div>
+          <div class="process__step" data-step="5" data-label="Consegna">
+            <span class="process__code">05</span>
+            <div>
+              <h3 class="h3">Consegna</h3>
+              <p class="body" style="margin-top:var(--sp-xs)">Cartella pronta all'uso più il piano di pubblicazione. Un round di revisioni è incluso in ogni pacchetto.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. STUDIO ============ -->
+<section class="ui-dark section--flush" id="studio">
+  <div style="position:relative; min-height:100vh; display:flex; align-items:center; overflow:hidden">
+    <div class="layer-bg">
+      <!-- ▼ SLOT 07 — postazione / setup di lavoro -->
+      <picture class="media-fill parallax-image-move" data-slot="07"><source media="(max-width:979px)" srcset="immagini/studio-mobile.jpg"><img src="immagini/studio.jpg" alt="Studio AI.CREA.IT" loading="lazy"></picture>
+    </div>
+    <div class="container" style="position:relative; z-index:2; padding-top:var(--sp-xxl); padding-bottom:var(--sp-xxl)">
+      <div class="grid">
+        <div class="col-4 col-md-5 reveal">
+          <p class="eyebrow">07 — Studio</p>
+          <h2 class="h2" style="margin:var(--sp-s) 0">Nessun set.<br>Nessuna attesa.</h2>
+          <p class="lead">Quello che prima richiedeva una troupe, un giorno di shooting e due settimane di attesa, oggi vive dentro un flusso di lavoro governato da una sola persona e da un sistema di modelli specializzati.</p>
+          <p class="body" style="margin-top:var(--sp-m)">Il vantaggio non è il prezzo. È la possibilità di provare dieci direzioni prima di sceglierne una.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. SERVIZI — sticky slider 5 schermate ============ -->
+<section class="ui-dark svc" id="servizi">
+  <h2 class="sr-only">Servizi: fotografia di prodotto AI, video e pubblicità AI, personaggi e volti del brand, identità visiva, consulenza e formazione.</h2>
+  <div class="sticky" id="svcSticky" style="height:500vh">
+    <div class="svc__viewport">
+
+      <article class="svc__slide is-active" data-slide="1">
+        <div class="svc__media"><picture class="media-fill" data-slot="08-1"><source media="(max-width:979px)" srcset="immagini/servizio-01-mobile.jpg"><img src="immagini/servizio-01.jpg" alt="Fotografia di prodotto" loading="lazy"></picture></div>
+        <div class="container svc__content">
+          <div class="grid" style="width:100%">
+            <div class="col-4 col-md-5">
+              <p class="eyebrow">Servizio 01</p>
+              <h3 class="h-display" style="margin:var(--sp-s) 0">Fotografia<br>di prodotto</h3>
+              <p class="lead">Il tuo prodotto in luce editoriale: packshot puliti, still life materici, set lifestyle coordinati. Da 15 scatti in su, pronti in 3–5 giorni.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc__slide" data-slide="2">
+        <div class="svc__media"><picture class="media-fill" data-slot="08-2"><source media="(max-width:979px)" srcset="immagini/servizio-02-mobile.jpg"><img src="immagini/servizio-02.jpg" alt="Video e pubblicità" loading="lazy"></picture></div>
+        <div class="container svc__content">
+          <div class="grid" style="width:100%">
+            <div class="col-4 col-md-5">
+              <p class="eyebrow">Servizio 02</p>
+              <h3 class="h-display" style="margin:var(--sp-s) 0">Video<br>e pubblicità</h3>
+              <p class="lead">Reel fino a 15 secondi per Instagram e TikTok: movimento di prodotto, atmosfera, ritmo. Con o senza voce e volto AI.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc__slide" data-slide="3">
+        <div class="svc__media"><picture class="media-fill" data-slot="08-3"><source media="(max-width:979px)" srcset="immagini/servizio-03-mobile.jpg"><img src="immagini/servizio-03.jpg" alt="Volti del brand" loading="lazy"></picture></div>
+        <div class="container svc__content">
+          <div class="grid" style="width:100%">
+            <div class="col-4 col-md-5">
+              <p class="eyebrow">Servizio 03</p>
+              <h3 class="h-display" style="margin:var(--sp-s) 0">Volti<br>del brand</h3>
+              <p class="lead">Un volto AI coerente che accompagna il brand nel tempo — sempre lo stesso, sempre riconoscibile. Con l'etichettatura richiesta dall'EU AI Act.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc__slide" data-slide="4">
+        <div class="svc__media"><picture class="media-fill" data-slot="08-4"><source media="(max-width:979px)" srcset="immagini/servizio-04-mobile.jpg"><img src="immagini/servizio-04.jpg" alt="Identità visiva" loading="lazy"></picture></div>
+        <div class="container svc__content">
+          <div class="grid" style="width:100%">
+            <div class="col-4 col-md-5">
+              <p class="eyebrow">Servizio 04</p>
+              <h3 class="h-display" style="margin:var(--sp-s) 0">Identità<br>visiva</h3>
+              <p class="lead">Palette, tipografia, regole di scatto e template riutilizzabili: un sistema che rende ogni pubblicazione riconoscibile come tua.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc__slide" data-slide="5">
+        <div class="svc__media"><picture class="media-fill" data-slot="08-5"><source media="(max-width:979px)" srcset="immagini/servizio-05-mobile.jpg"><img src="immagini/servizio-05.jpg" alt="Consulenza" loading="lazy"></picture></div>
+        <div class="container svc__content">
+          <div class="grid" style="width:100%">
+            <div class="col-4 col-md-5">
+              <p class="eyebrow">Servizio 05</p>
+              <h3 class="h-display" style="margin:var(--sp-s) 0">Consulenza<br>e formazione</h3>
+              <p class="lead">Se preferisci farlo internamente: impostiamo il flusso, gli strumenti e le regole di stile, e formiamo chi lo porterà avanti.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="svc__counter is-hidden--sm-down">
+        <b><span id="svcNum">01</span></b>
+        <div class="svc__progress"><i id="svcBar" style="height:20%"></i></div>
+        <span>/ 05</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. LAVORI — teaser griglia ============ -->
+<section class="ui-light section" id="lavori">
+  <div class="container">
+    <div class="grid" style="margin-bottom:var(--sp-l)">
+      <div class="col-4 col-md-6">
+        <p class="eyebrow reveal">08 — Lavori</p>
+        <h2 class="h2 reveal" style="margin-top:var(--sp-s)">Selezione<br>per nicchia</h2>
+      </div>
+      <div class="col-4 col-md-4 start-md-8" style="display:flex; align-items:flex-end">
+        <p class="body reveal">Sette mondi con regole di luce diverse. Ogni nicchia ha il suo modo di rendere un oggetto desiderabile.</p>
+      </div>
+    </div>
+
+    <div class="works" data-stagger>
+      <a class="work" href="lavori.html#n-profumeria"><div class="work__media"><img data-slot="09-1" class="ratio-3-4" src="immagini/nicchia-01.jpg" alt="Profumeria" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="work__meta"><span>Profumeria</span><span>01</span></div></a>
+      <a class="work" href="lavori.html#n-gioielleria"><div class="work__media"><img data-slot="09-2" class="ratio-3-4" src="immagini/nicchia-02.jpg" alt="Gioielleria" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="work__meta"><span>Gioielleria</span><span>02</span></div></a>
+      <a class="work" href="lavori.html#n-beauty"><div class="work__media"><img data-slot="09-3" class="ratio-3-4" src="immagini/nicchia-03.jpg" alt="Beauty" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="work__meta"><span>Beauty</span><span>03</span></div></a>
+      <a class="work" href="lavori.html#n-matrimoni"><div class="work__media"><img data-slot="09-4" class="ratio-3-4" src="immagini/nicchia-04.jpg" alt="Matrimoni" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="work__meta"><span>Matrimoni</span><span>04</span></div></a>
+      <a class="work" href="lavori.html#n-hotel"><div class="work__media"><img data-slot="09-5" class="ratio-3-4" src="immagini/nicchia-05.jpg" alt="Hotel Boutique" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="work__meta"><span>Hotel</span><span>05</span></div></a>
+      <a class="work" href="lavori.html#n-cantine"><div class="work__media"><img data-slot="09-6" class="ratio-3-4" src="immagini/nicchia-06.jpg" alt="Cantine" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="work__meta"><span>Cantine</span><span>06</span></div></a>
+      <a class="work" href="lavori.html#n-orologi"><div class="work__media"><img data-slot="09-7" class="ratio-3-4" src="immagini/nicchia-07.jpg" alt="Orologi" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="work__meta"><span>Orologi</span><span>07</span></div></a>
+    </div>
+
+    <div style="text-align:center; margin-top:var(--sp-l)">
+      <a href="lavori.html" class="btn btn--fill">
+        Vedi il portfolio completo
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12. NUMERI ============ -->
+<section class="ui-dark section" id="numeri">
+  <div class="container">
+    <div class="grid">
+      <div class="col-4 col-md-4">
+        <img data-slot="10-1" class="ratio-3-4 parallax-image-move reveal" src="immagini/numeri-01.jpg" alt="Macro beauty editoriale" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div class="col-4 col-md-7 start-md-6" style="display:flex; flex-direction:column; justify-content:center">
+        <p class="eyebrow reveal">09 — Numeri</p>
+        <h2 class="h2 reveal" style="margin:var(--sp-s) 0 var(--sp-l)">Lo studio<br>in quattro numeri</h2>
+        <div class="grid" data-stagger style="gap:var(--sp-m)">
+          <div class="col-4 col-md-6"><div class="stat"><b class="num" data-count="7">7</b><span>Nicchie in portfolio</span></div></div>
+          <div class="col-4 col-md-6"><div class="stat"><b class="num" data-count="32">32</b><span>Scatti in portfolio</span></div></div>
+          <div class="col-4 col-md-6"><div class="stat"><b class="num" data-count="16">16</b><span>Video in portfolio</span></div></div>
+          <div class="col-4 col-md-6"><div class="stat"><b class="num" data-count="1">1</b><span>Direttrice creativa</span></div></div>
+        </div>
+        <p class="text-small" style="margin-top:var(--sp-m)">Ogni numero corrisponde a quello che trovi nel portfolio, non a una stima.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13. BOLD TYPOGRAPHY BREAK ============ -->
+<section class="ui-light bold-break">
+  <div class="container">
+    <div class="bold-break__frame reveal">
+      <p class="bold-break__word">AI.CREA.IT</p>
+      <p class="bold-break__sub">Digital Creator Studio · L'arte di farsi notare</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14. PREZZI — tabs ============ -->
+<section class="ui-light section" id="prezzi">
+  <div class="container">
+    <div class="grid" style="margin-bottom:var(--sp-l)">
+      <div class="col-4 col-md-6">
+        <p class="eyebrow reveal">10 — Prezzi</p>
+        <h2 class="h2 reveal" style="margin-top:var(--sp-s)">Tre modi<br>di lavorare insieme</h2>
+      </div>
+      <div class="col-4 col-md-4 start-md-8" style="display:flex; align-items:flex-end">
+        <p class="body reveal">Prova, continuità o lancio. Nessun contratto lungo: si comincia dal formato più piccolo che ha senso per te.</p>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab is-active" role="tab" data-tab="1" aria-selected="true">Progetto singolo</button>
+      <button class="tab" role="tab" data-tab="2" aria-selected="false">Pacchetto mensile</button>
+      <button class="tab" role="tab" data-tab="3" aria-selected="false">Lancio prodotto</button>
+    </div>
+
+    <div class="tabpanel is-active" data-panel="1">
+      <div class="grid">
+        <div class="col-4 col-md-6">
+          <div class="price-card">
+            <p class="eyebrow">Starter Shot</p>
+            <p class="price-card__price">€90 — 120</p>
+            <p class="body">Prova come funziona il contenuto AI sul tuo prodotto, senza rischio e senza lunghe attese.</p>
+            <ul>
+              <li>15–20 foto in stile editoriale</li>
+              <li>Consegna in 3–5 giorni</li>
+              <li>2 round di revisioni inclusi</li>
+              <li>Formati pronti per feed e schede prodotto</li>
+            </ul>
+            <a href="brief.html?pacchetto=starter" class="btn btn--fill">Compila il brief<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+        <div class="col-4 col-md-5 start-md-8">
+          <p class="eyebrow">À la carte</p>
+          <ul class="eco__list" style="margin-top:var(--sp-s)">
+            <li><span class="eco__num">—</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">1 foto</span><span class="eco__desc">€8–10 · da 20 pezzi €5–6</span></span></li>
+            <li><span class="eco__num">—</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">1 video fino a 15″</span><span class="eco__desc">€35–45 senza volto AI</span></span></li>
+            <li><span class="eco__num">—</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">1 video con volto AI</span><span class="eco__desc">€60–90 con voce e lip-sync</span></span></li>
+            <li><span class="eco__num">—</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">Piano editoriale</span><span class="eco__desc">€50 · incluso nel pacchetto mensile</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabpanel" data-panel="2">
+      <div class="grid">
+        <div class="col-4 col-md-6">
+          <div class="price-card price-card--hi">
+            <span class="price-card__badge">Più richiesto</span>
+            <p class="eyebrow">Monthly Studio</p>
+            <p class="price-card__price">€220 — 350<span style="font-size:.35em; letter-spacing:.18em"> / mese</span></p>
+            <p class="body">Un mese intero di contenuti a livello di shooting da studio, senza pensare alla pianificazione.</p>
+            <ul>
+              <li>40–60 foto</li>
+              <li>2–4 video fino a 15 secondi</li>
+              <li>Piano editoriale del mese incluso</li>
+              <li>1 round di revisioni incluso</li>
+            </ul>
+            <a href="brief.html?pacchetto=monthly" class="btn btn--fill">Compila il brief<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+        <div class="col-4 col-md-5 start-md-8">
+          <p class="eyebrow">Come funziona</p>
+          <p class="lead" style="margin-top:var(--sp-s)">Il primo mese il prezzo è calibrato più basso, perché stiamo testando insieme il formato. Appena si vedono i primi risultati il prezzo si adegua al volume di lavoro — sempre comunicato prima del rinnovo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabpanel" data-panel="3">
+      <div class="grid">
+        <div class="col-4 col-md-6">
+          <div class="price-card">
+            <p class="eyebrow">Launch Campaign</p>
+            <p class="price-card__price">€450 — 700</p>
+            <p class="body">Il lancio completo di un prodotto nuovo, con il volto AI del brand, in 7–10 giorni.</p>
+            <ul>
+              <li>20–30 foto</li>
+              <li>3–5 video, alcuni con volto AI</li>
+              <li>Piano editoriale della campagna</li>
+              <li>Etichettatura EU AI Act inclusa</li>
+              <li>1 round di revisioni incluso</li>
+            </ul>
+            <a href="brief.html?pacchetto=launch" class="btn btn--fill">Compila il brief<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+        <div class="col-4 col-md-5 start-md-8">
+          <p class="eyebrow">Condizioni</p>
+          <ul class="eco__list" style="margin-top:var(--sp-s)">
+            <li><span class="eco__num">01</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">Pagamento</span><span class="eco__desc">50% all'avvio, 50% alla consegna.</span></span></li>
+            <li><span class="eco__num">02</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">Garanzia</span><span class="eco__desc">1 round di revisioni incluso in ogni pacchetto (2 per Starter Shot). Revisioni aggiuntive: +20% sul prezzo del pacchetto.</span></span></li>
+            <li><span class="eco__num">03</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">Tempi di risposta</span><span class="eco__desc">Entro 24 ore nei giorni lavorativi.</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 15. COME LAVORO — 3 carte ============ -->
+<section class="ui-light section" id="come-lavoro" style="padding-top:0">
+  <div class="container">
+    <p class="eyebrow reveal">11 — Dietro le quinte</p>
+    <h2 class="h2 reveal" style="margin:var(--sp-s) 0 var(--sp-l)">Come è fatto<br>il lavoro</h2>
+    <div class="grid" data-stagger>
+      <div class="col-4 col-md-4">
+        <div class="card"><p class="card__n">01</p><h3 class="h3">Catena AI</h3><p class="body">Un flusso in cui ogni modello fa una cosa sola e la fa bene: concept, generazione, ritocco, formati. Meno passaggi manuali, meno tempo perso.</p></div>
+      </div>
+      <div class="col-4 col-md-4">
+        <div class="card"><p class="card__n">02</p><h3 class="h3">Controllo qualità</h3><p class="body">Ogni scatto passa dallo stesso sistema di revisione: coerenza di luce e palette, versioni numerate, niente file "quasi buoni" in consegna.</p></div>
+      </div>
+      <div class="col-4 col-md-4">
+        <div class="card"><p class="card__n">03</p><h3 class="h3">Un solo referente</h3><p class="body">Dal brief alla consegna parli sempre con la stessa persona. Nessun passaggio di consegne, nessuna spiegazione ripetuta due volte.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 16. CASO IN EVIDENZA ============ -->
+<section class="ui-dark case" id="caso">
+  <div class="case__media">
+    <!-- ▼ SLOT 11 — caso flagship fullscreen -->
+    <picture class="media-fill parallax-image-move" data-slot="11"><source media="(max-width:979px)" srcset="immagini/caso-mobile.jpg"><img src="immagini/caso.jpg" alt="Caso in evidenza — campagna per un boutique resort" loading="lazy"></picture>
+  </div>
+  <div class="container case__body">
+    <p class="eyebrow reveal">12 — Caso in evidenza</p>
+    <h2 class="h-display reveal" style="margin:var(--sp-s) 0">Campagna<br>per un resort</h2>
+    <p class="lead reveal" style="max-width:52ch">Una campagna completa per un boutique resort mediterraneo: interni, spa, ristorante e piscina, più i video di apertura. Stessa luce dal mattino al tramonto, su ogni formato.</p>
+    <div class="case__stats" data-stagger>
+      <div class="stat"><b class="num">10</b><span>Scatti consegnati</span></div>
+      <div class="stat"><b class="num">4</b><span>Video consegnati</span></div>
+      <div class="stat"><b class="num">6</b><span>Ambienti coperti</span></div>
+      <div class="stat"><b class="num">2</b><span>Formati per canale</span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ui-dark footer" id="contatti">
+  <div class="container">
+    <div class="footer__cta">
+      <p class="eyebrow reveal">Iniziamo</p>
+      <p class="h-display reveal" style="margin:var(--sp-s) 0 var(--sp-m)">Raccontami<br>il tuo prodotto</p>
+      <a href="brief.html" class="btn btn--fill">
+        Compila il brief
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="footer__grid">
+      <div>
+        <img class="footer__logo" src="immagini/logo-wordmark-gold.png" alt="AI.CREA.IT — Digital Creator Studio" width="900" height="308">
+        <p class="body" style="margin-top:var(--sp-s); max-width:34ch">Non creiamo contenuti,<br>creiamo desiderio.</p>
+      </div>
+      <div>
+        <h4>Navigazione</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="lavori.html">Lavori</a></li>
+          <li><a href="brief.html">Brief</a></li>
+          <li><a href="index.html#prezzi">Prezzi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <ul>
+          <li><a href="mailto:ai.crea.it@gmail.com">ai.crea.it@gmail.com</a></li>
+          <li><a href="https://instagram.com/ai.crea.it" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://tiktok.com/@ai.crea.it" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 AI.CREA.IT</span>
+      <span>L'arte di farsi notare</span>
+      <a href="privacy.html">Privacy policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODALE VIDEO ============ -->
+<div class="modal modal--video" id="videoModal" role="dialog" aria-modal="true" aria-label="Showreel">
+  <div class="modal__bg" data-close-video></div>
+  <button class="modal__close" data-close-video aria-label="Chiudi"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <div class="modal__body">
+    <div class="video-wrap">
+      <!-- ▼ SLOT 04b — showreel completo con audio -->
+      <video data-slot="04b" class="ph-fill" controls playsinline preload="none" poster="immagini/showreel-poster.jpg" aria-label="Showreel AI.CREA.IT" style="width:100%;height:100%;object-fit:cover"><source src="video/showreel.mp4" type="video/mp4"></video>
+    </div>
+  </div>
+</div>
+
+<!-- ============ UI GLOBALE ============ -->
+<div class="cursor" id="cursor">Trascina</div>
+<div class="c-scrollbar"><div class="c-scrollbar__thumb" id="scrollThumb"></div></div>
+<button class="totop" id="toTop" aria-label="Torna su"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+
+<div class="cookie" id="cookie">
+  <p>Usiamo cookie tecnici per far funzionare il sito e cookie di analisi anonimi per capire cosa funziona. <a href="privacy.html">Privacy policy</a>.</p>
+  <button class="btn btn--fill" id="cookieOk">Accetto</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
+<script src="immagini/mappa.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

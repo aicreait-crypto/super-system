@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lavori — AI.CREA.IT</title>
+<meta name="description" content="Portfolio AI.CREA.IT: foto e video AI per profumeria, gioielleria, beauty, matrimoni, hotel boutique, cantine e accessori.">
+<meta property="og:title" content="Lavori — AI.CREA.IT">
+<meta property="og:description" content="Il portfolio completo dello studio: reel e scatti editoriali per sette nicchie.">
+<meta property="og:image" content="immagini/og-cover.jpg">
+<meta name="theme-color" content="#1C1B18">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Inter:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1 class="sr-only">Portfolio AI.CREA.IT — lavori di fotografia e video generati con AI per brand di profumeria, gioielleria, beauty, matrimoni, hotel boutique, cantine e accessori.</h1>
+
+<div class="preloader" id="preloader">
+  <img class="preloader__mark" src="immagini/logo-monogram-gold.png" alt="AI.CREA.IT" width="256" height="262">
+  <div class="preloader__bar"><i id="preBar"></i></div>
+  <p class="preloader__txt">AI.CREA.IT</p>
+</div>
+
+<header class="header is-solid" id="header">
+  <div class="container header__inner">
+    <a href="index.html" class="brand" aria-label="AI.CREA.IT — home">
+      <img class="brand__mark" src="immagini/logo-monogram-gold.png" alt="" width="256" height="262">
+      <span class="brand__name">AI.CREA.IT</span>
+    </a>
+    <div class="header__right">
+      <a href="brief.html" class="header__cta is-hidden--sm-down">Compila il brief</a>
+      <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="modal modal--full" id="menu" role="dialog" aria-modal="true" aria-label="Menu di navigazione">
+  <div class="modal__bg" data-close-menu></div>
+  <button class="modal__close" data-close-menu aria-label="Chiudi il menu"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <div class="modal__body">
+    <div class="container" style="width:100%">
+      <ul class="menu-list">
+        <li><a href="index.html" style="--d:.05s"><span>01</span>Home</a></li>
+        <li><a href="lavori.html" style="--d:.12s"><span>02</span>Lavori</a></li>
+        <li><a href="brief.html" style="--d:.19s"><span>03</span>Brief</a></li>
+        <li><a href="index.html#prezzi" style="--d:.26s"><span>04</span>Prezzi</a></li>
+        <li><a href="index.html#chi-siamo" style="--d:.33s"><span>05</span>Chi siamo</a></li>
+      </ul>
+    </div>
+    <div class="menu-foot">
+      <a href="mailto:ai.crea.it@gmail.com">ai.crea.it@gmail.com</a>
+      <span><a href="https://instagram.com/ai.crea.it" target="_blank" rel="noopener">Instagram</a> · <a href="https://tiktok.com/@ai.crea.it" target="_blank" rel="noopener">TikTok</a></span>
+      <span>L'arte di farsi notare</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="ui-dark pagehero pagehero--top">
+  <div class="layer-bg">
+    <!-- ▼ SLOT 12 — sfondo testata Lavori -->
+    <picture class="media-fill parallax-image-move" data-slot="12"><source media="(max-width:979px)" srcset="immagini/lavori-hero-mobile.jpg"><img src="immagini/lavori-hero.jpg" alt="Portfolio AI.CREA.IT" loading="lazy"></picture>
+  </div>
+  <div class="container" style="position:relative; z-index:2">
+    <p class="eyebrow reveal">Portfolio</p>
+    <h2 class="h-display reveal" style="margin:var(--sp-s) 0">Lavori</h2>
+    <p class="lead reveal" style="max-width:46ch">Ogni nicchia ha le sue regole di luce e di materia. Qui trovi come cambia lo sguardo passando da un profumo a un anello, da un matrimonio a una cantina.</p>
+  </div>
+</section>
+
+<!-- ============ NICCHIE ============ -->
+<section class="ui-light section" id="nicchie">
+  <div class="container">
+    <p class="eyebrow reveal">01 — Per settore</p>
+    <h2 class="h2 reveal" style="margin:var(--sp-s) 0 var(--sp-m)">Ogni nicchia, la sua luce</h2>
+    <p class="lead reveal" style="max-width:52ch; margin-bottom:var(--sp-xl)">Per ogni settore trovi gli scatti e i video girati per lo stesso prodotto: prima come si mostra, poi come si muove.</p>
+
+    <article class="nic" id="n-profumeria">
+      <div class="nic__grid" data-stagger>
+        <div class="nic__txt">
+          <p class="eyebrow">01 — Profumeria</p>
+          <h3 class="h3" style="margin:var(--sp-s) 0">Il flacone che vuoi toccare</h3>
+          <p class="body">Vetro, acqua, fogliame bagnato. Il prodotto resta il protagonista: nessuna scena lo copre, la luce lo attraversa e basta.</p>
+          <ul class="nic__tags"><li>Scatti prodotto</li><li>Campagna</li><li>Video 16:9</li></ul>
+        </div>
+        <figure class="nic__img" data-lb data-lb-cap="Profumeria — Flacone sommerso tra le orchidee"><img data-slot="20-01a" src="immagini/n01-a.jpg" alt="Flacone sommerso tra le orchidee" loading="lazy"><figcaption>Flacone sommerso tra le orchidee</figcaption></figure>
+        <figure class="nic__img" data-lb data-lb-cap="Profumeria — Flacone nella vegetazione bagnata"><img data-slot="20-01b" src="immagini/n01-b.jpg" alt="Flacone nella vegetazione bagnata" loading="lazy"><figcaption>Flacone nella vegetazione bagnata</figcaption></figure>
+      </div>
+      <div class="nic__media nic__media--2" data-stagger>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Profumeria — La goccia ambrata"><video data-lazyplay data-slot="20-01v1" muted loop playsinline preload="none" poster="immagini/n01-v1-poster.jpg" aria-label="La goccia ambrata"><source src="video/n01-v1.mp4" type="video/mp4"></video><figcaption>La goccia ambrata</figcaption></figure>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Profumeria — Il flacone nella nebbia"><video data-lazyplay data-slot="20-01v2" muted loop playsinline preload="none" poster="immagini/n01-v2-poster.jpg" aria-label="Il flacone nella nebbia"><source src="video/n01-v2.mp4" type="video/mp4"></video><figcaption>Il flacone nella nebbia</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="nic nic--rev" id="n-gioielleria">
+      <div class="nic__grid" data-stagger>
+        <div class="nic__txt">
+          <p class="eyebrow">02 — Gioielleria</p>
+          <h3 class="h3" style="margin:var(--sp-s) 0">La pietra che cattura la luce</h3>
+          <p class="body">Macro assoluta. Un punto di luce, un fondo che scompare, e il metallo che resta caldo senza virare al giallo.</p>
+          <ul class="nic__tags"><li>Macro</li><li>E-commerce</li><li>Video 16:9</li></ul>
+        </div>
+        <figure class="nic__img" data-lb data-lb-cap="Gioielleria — Orecchino — brillante nel buio"><img data-slot="20-02a" src="immagini/n02-a.jpg" alt="Orecchino — brillante nel buio" loading="lazy"><figcaption>Orecchino — brillante nel buio</figcaption></figure>
+        <figure class="nic__img" data-lb data-lb-cap="Gioielleria — Solitario sulle piume bianche"><img data-slot="20-02b" src="immagini/n02-b.jpg" alt="Solitario sulle piume bianche" loading="lazy"><figcaption>Solitario sulle piume bianche</figcaption></figure>
+      </div>
+      <div class="nic__media nic__media--1" data-stagger>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Gioielleria — Il brillante che respira"><video data-lazyplay data-slot="20-02v1" muted loop playsinline preload="none" poster="immagini/n02-v1-poster.jpg" aria-label="Il brillante che respira"><source src="video/n02-v1.mp4" type="video/mp4"></video><figcaption>Il brillante che respira</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="nic" id="n-beauty">
+      <div class="nic__grid" data-stagger>
+        <div class="nic__txt">
+          <p class="eyebrow">03 — Beauty</p>
+          <h3 class="h3" style="margin:var(--sp-s) 0">La pelle, senza filtri</h3>
+          <p class="body">Pori, peluria, riflessi veri. La texture non viene levigata: è quella che convince chi compra un siero a comprarlo davvero.</p>
+          <ul class="nic__tags"><li>Ritratto prodotto</li><li>Texture</li><li>Video 16:9</li></ul>
+        </div>
+        <figure class="nic__img" data-lb data-lb-cap="Beauty — Il rituale — prodotto e volto"><img data-slot="20-03a" src="immagini/n03-a.jpg" alt="Il rituale — prodotto e volto" loading="lazy"><figcaption>Il rituale — prodotto e volto</figcaption></figure>
+        <figure class="nic__img" data-lb data-lb-cap="Beauty — La goccia di siero sullo zigomo"><img data-slot="20-03b" src="immagini/n03-b.jpg" alt="La goccia di siero sullo zigomo" loading="lazy"><figcaption>La goccia di siero sullo zigomo</figcaption></figure>
+      </div>
+      <div class="nic__media nic__media--2" data-stagger>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Beauty — Il volto che si gira"><video data-lazyplay data-slot="20-03v1" muted loop playsinline preload="none" poster="immagini/n03-v1-poster.jpg" aria-label="Il volto che si gira"><source src="video/n03-v1.mp4" type="video/mp4"></video><figcaption>Il volto che si gira</figcaption></figure>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Beauty — Il flacone sul piedistallo"><video data-lazyplay data-slot="20-03v2" muted loop playsinline preload="none" poster="immagini/n03-v2-poster.jpg" aria-label="Il flacone sul piedistallo"><source src="video/n03-v2.mp4" type="video/mp4"></video><figcaption>Il flacone sul piedistallo</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="nic nic--rev" id="n-matrimoni">
+      <div class="nic__grid" data-stagger>
+        <div class="nic__txt">
+          <p class="eyebrow">04 — Matrimoni</p>
+          <h3 class="h3" style="margin:var(--sp-s) 0">Il giorno, come lo ricorderà</h3>
+          <p class="body">Vento, velo, ora dorata. Niente pose da catalogo: il movimento del tessuto fa tutto il lavoro.</p>
+          <ul class="nic__tags"><li>Editoriale</li><li>Scogliera</li><li>Video 16:9</li></ul>
+        </div>
+        <figure class="nic__img" data-lb data-lb-cap="Matrimoni — Il velo preso dal vento"><img data-slot="20-04a" src="immagini/n04-a.jpg" alt="Il velo preso dal vento" loading="lazy"><figcaption>Il velo preso dal vento</figcaption></figure>
+        <figure class="nic__img" data-lb data-lb-cap="Matrimoni — Sulla scogliera, di profilo"><img data-slot="20-04b" src="immagini/n04-b.jpg" alt="Sulla scogliera, di profilo" loading="lazy"><figcaption>Sulla scogliera, di profilo</figcaption></figure>
+      </div>
+      <div class="nic__media nic__media--2" data-stagger>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Matrimoni — Il velo in movimento"><video data-lazyplay data-slot="20-04v1" muted loop playsinline preload="none" poster="immagini/n04-v1-poster.jpg" aria-label="Il velo in movimento"><source src="video/n04-v1.mp4" type="video/mp4"></video><figcaption>Il velo in movimento</figcaption></figure>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Matrimoni — La luce sulla scogliera"><video data-lazyplay data-slot="20-04v2" muted loop playsinline preload="none" poster="immagini/n04-v2-poster.jpg" aria-label="La luce sulla scogliera"><source src="video/n04-v2.mp4" type="video/mp4"></video><figcaption>La luce sulla scogliera</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="nic" id="n-cantine">
+      <div class="nic__grid" data-stagger>
+        <div class="nic__txt">
+          <p class="eyebrow">05 — Cantine</p>
+          <h3 class="h3" style="margin:var(--sp-s) 0">Il vino prima del bicchiere</h3>
+          <p class="body">Alta velocità e botti in penombra. Il flusso si torce, la luce lo attraversa, l'etichetta resta fuori campo.</p>
+          <ul class="nic__tags"><li>Alta velocità</li><li>Still life</li><li>Video 16:9</li></ul>
+        </div>
+        <figure class="nic__img" data-lb data-lb-cap="Cantine — La mescita, ripresa a metà"><img data-slot="20-05a" src="immagini/n05-a.jpg" alt="La mescita, ripresa a metà" loading="lazy"><figcaption>La mescita, ripresa a metà</figcaption></figure>
+        <figure class="nic__img" data-lb data-lb-cap="Cantine — Il calice sul marmo, in cantina"><img data-slot="20-05b" src="immagini/n05-b.jpg" alt="Il calice sul marmo, in cantina" loading="lazy"><figcaption>Il calice sul marmo, in cantina</figcaption></figure>
+      </div>
+      <div class="nic__media nic__media--2" data-stagger>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Cantine — Il flusso che si torce"><video data-lazyplay data-slot="20-05v1" muted loop playsinline preload="none" poster="immagini/n05-v1-poster.jpg" aria-label="Il flusso che si torce"><source src="video/n05-v1.mp4" type="video/mp4"></video><figcaption>Il flusso che si torce</figcaption></figure>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Cantine — Il calice che si riempie"><video data-lazyplay data-slot="20-05v2" muted loop playsinline preload="none" poster="immagini/n05-v2-poster.jpg" aria-label="Il calice che si riempie"><source src="video/n05-v2.mp4" type="video/mp4"></video><figcaption>Il calice che si riempie</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="nic nic--rev" id="n-hotel">
+      <div class="nic__grid" data-stagger>
+        <div class="nic__txt">
+          <p class="eyebrow">06 — Hotel Boutique</p>
+          <h3 class="h3" style="margin:var(--sp-s) 0">Lo spazio che invita</h3>
+          <p class="body">Una campagna intera per un resort mediterraneo: interni, tavola, piscina, e la stessa luce dalle prime luci al tramonto.</p>
+          <ul class="nic__tags"><li>Interni</li><li>Campagna completa</li><li>Video 16:9</li></ul>
+        </div>
+        <figure class="nic__img" data-lb data-lb-cap="Hotel Boutique — La spa — Time for yourself"><img data-slot="20-06a" src="immagini/n06-a.jpg" alt="La spa — Time for yourself" loading="lazy"><figcaption>La spa — Time for yourself</figcaption></figure>
+        <figure class="nic__img" data-lb data-lb-cap="Hotel Boutique — La camera sul mare"><img data-slot="20-06b" src="immagini/n06-b.jpg" alt="La camera sul mare" loading="lazy"><figcaption>La camera sul mare</figcaption></figure>
+      </div>
+      <div class="nic__media nic__media--2" data-stagger>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Hotel Boutique — Si entra nella suite"><video data-lazyplay data-slot="20-06v1" muted loop playsinline preload="none" poster="immagini/n06-v1-poster.jpg" aria-label="Si entra nella suite"><source src="video/n06-v1.mp4" type="video/mp4"></video><figcaption>Si entra nella suite</figcaption></figure>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Hotel Boutique — Il resort al tramonto"><video data-lazyplay data-slot="20-06v2" muted loop playsinline preload="none" poster="immagini/n06-v2-poster.jpg" aria-label="Il resort al tramonto"><source src="video/n06-v2.mp4" type="video/mp4"></video><figcaption>Il resort al tramonto</figcaption></figure>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Hotel Boutique — Il piatto che arriva"><video data-lazyplay data-slot="20-06v3" muted loop playsinline preload="none" poster="immagini/n06-v3-poster.jpg" aria-label="Il piatto che arriva"><source src="video/n06-v3.mp4" type="video/mp4"></video><figcaption>Il piatto che arriva</figcaption></figure>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Hotel Boutique — Lungo la piscina"><video data-lazyplay data-slot="20-06v4" muted loop playsinline preload="none" poster="immagini/n06-v4-poster.jpg" aria-label="Lungo la piscina"><source src="video/n06-v4.mp4" type="video/mp4"></video><figcaption>Lungo la piscina</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="nic" id="n-orologi">
+      <div class="nic__grid" data-stagger>
+        <div class="nic__txt">
+          <p class="eyebrow">07 — Orologi</p>
+          <h3 class="h3" style="margin:var(--sp-s) 0">Il tempo come oggetto</h3>
+          <p class="body">Packshot su fondo bianco e la stessa referenza portata nel bosco, sull’acqua, nella nebbia. Un prodotto, due mondi.</p>
+          <ul class="nic__tags"><li>Packshot</li><li>Lifestyle</li><li>Video 9:16</li></ul>
+        </div>
+        <figure class="nic__img" data-lb data-lb-cap="Orologi — Packshot su fondo bianco"><img data-slot="20-07a" src="immagini/n07-a.jpg" alt="Packshot su fondo bianco" loading="lazy"><figcaption>Packshot su fondo bianco</figcaption></figure>
+        <figure class="nic__img" data-lb data-lb-cap="Orologi — Sulla roccia, tra il muschio"><img data-slot="20-07b" src="immagini/n07-b.jpg" alt="Sulla roccia, tra il muschio" loading="lazy"><figcaption>Sulla roccia, tra il muschio</figcaption></figure>
+      </div>
+      <div class="nic__media nic__media--3 nic__media--vert" data-stagger>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Orologi — Sul muschio"><video data-lazyplay data-slot="20-07v1" muted loop playsinline preload="none" poster="immagini/n07-v1-poster.jpg" aria-label="Sul muschio"><source src="video/n07-v1.mp4" type="video/mp4"></video><figcaption>Sul muschio</figcaption></figure>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Orologi — Nella nebbia"><video data-lazyplay data-slot="20-07v2" muted loop playsinline preload="none" poster="immagini/n07-v2-poster.jpg" aria-label="Nella nebbia"><source src="video/n07-v2.mp4" type="video/mp4"></video><figcaption>Nella nebbia</figcaption></figure>
+        <figure class="nic__v" data-lb data-lb-type="video" data-lb-cap="Orologi — Il volo della farfalla"><video data-lazyplay data-slot="20-07v3" muted loop playsinline preload="none" poster="immagini/n07-v3-poster.jpg" aria-label="Il volo della farfalla"><source src="video/n07-v3.mp4" type="video/mp4"></video><figcaption>Il volo della farfalla</figcaption></figure>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ ARCHIVIO + FILTRI ============ -->
+<section class="ui-dark section" id="galleria">
+  <div class="container">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:var(--sp-m); flex-wrap:wrap; margin-bottom:var(--sp-l)">
+      <div>
+        <p class="eyebrow reveal">02 — Archivio</p>
+        <h2 class="h2 reveal" style="margin-top:var(--sp-s)">Tutti gli scatti</h2>
+      </div>
+      <p class="text-small" id="countLabel">18 lavori</p>
+    </div>
+
+    <div class="filters reveal" style="margin-bottom:var(--sp-l)" id="filters">
+      <button class="chip is-active" data-filter="all">Tutti</button>
+      <button class="chip" data-filter="profumeria">Profumeria</button>
+      <button class="chip" data-filter="gioielleria">Gioielleria</button>
+      <button class="chip" data-filter="matrimoni">Matrimoni</button>
+      <button class="chip" data-filter="hotel">Hotel Boutique</button>
+      <button class="chip" data-filter="orologi">Orologi</button>
+    </div>
+
+    <div class="works" id="works" data-stagger>
+      <div class="work" data-cat="profumeria" data-lb data-lb-cap="Profumeria — Il flacone tra le mani"><div class="work__media"><img data-slot="14-01" src="immagini/arch-01.jpg" alt="Il flacone tra le mani" loading="lazy"></div><div class="work__meta"><span>Profumeria</span><span>01</span></div></div>
+      <div class="work" data-cat="gioielleria" data-lb data-lb-cap="Gioielleria — Orecchino — riflessi in controluce"><div class="work__media"><img data-slot="14-02" src="immagini/arch-02.jpg" alt="Orecchino — riflessi in controluce" loading="lazy"></div><div class="work__meta"><span>Gioielleria</span><span>02</span></div></div>
+      <div class="work" data-cat="gioielleria" data-lb data-lb-cap="Gioielleria — Anello nella peonia"><div class="work__media"><img data-slot="14-03" src="immagini/arch-03.jpg" alt="Anello nella peonia" loading="lazy"></div><div class="work__meta"><span>Gioielleria</span><span>03</span></div></div>
+      <div class="work" data-cat="gioielleria" data-lb data-lb-cap="Gioielleria — Anello nella peonia — dettaglio"><div class="work__media"><img data-slot="14-04" src="immagini/arch-04.jpg" alt="Anello nella peonia — dettaglio" loading="lazy"></div><div class="work__meta"><span>Gioielleria</span><span>04</span></div></div>
+      <div class="work" data-cat="gioielleria" data-lb data-lb-cap="Gioielleria — Petalo e solitario"><div class="work__media"><img data-slot="14-05" src="immagini/arch-05.jpg" alt="Petalo e solitario" loading="lazy"></div><div class="work__meta"><span>Gioielleria</span><span>05</span></div></div>
+      <div class="work" data-cat="gioielleria" data-lb data-lb-cap="Gioielleria — Solitario sul petalo di rosa"><div class="work__media"><img data-slot="14-06" src="immagini/arch-06.jpg" alt="Solitario sul petalo di rosa" loading="lazy"></div><div class="work__meta"><span>Gioielleria</span><span>06</span></div></div>
+      <div class="work" data-cat="matrimoni" data-lb data-lb-cap="Matrimoni — Il velo contro il cielo"><div class="work__media"><img data-slot="14-07" src="immagini/arch-07.jpg" alt="Il velo contro il cielo" loading="lazy"></div><div class="work__meta"><span>Matrimoni</span><span>07</span></div></div>
+      <div class="work" data-cat="matrimoni" data-lb data-lb-cap="Matrimoni — Il velo e la roccia"><div class="work__media"><img data-slot="14-08" src="immagini/arch-08.jpg" alt="Il velo e la roccia" loading="lazy"></div><div class="work__meta"><span>Matrimoni</span><span>08</span></div></div>
+      <div class="work" data-cat="hotel" data-lb data-lb-cap="Hotel Boutique — La piscina a sfioro"><div class="work__media"><img data-slot="14-09" src="immagini/arch-09.jpg" alt="La piscina a sfioro" loading="lazy"></div><div class="work__meta"><span>Hotel Boutique</span><span>09</span></div></div>
+      <div class="work" data-cat="hotel" data-lb data-lb-cap="Hotel Boutique — La tavola al tramonto"><div class="work__media"><img data-slot="14-10" src="immagini/arch-10.jpg" alt="La tavola al tramonto" loading="lazy"></div><div class="work__meta"><span>Hotel Boutique</span><span>10</span></div></div>
+      <div class="work" data-cat="hotel" data-lb data-lb-cap="Hotel Boutique — Your private escape"><div class="work__media"><img data-slot="14-11" src="immagini/arch-11.jpg" alt="Your private escape" loading="lazy"></div><div class="work__meta"><span>Hotel Boutique</span><span>11</span></div></div>
+      <div class="work" data-cat="hotel" data-lb data-lb-cap="Hotel Boutique — Slow down — la piscina"><div class="work__media"><img data-slot="14-12" src="immagini/arch-12.jpg" alt="Slow down — la piscina" loading="lazy"></div><div class="work__meta"><span>Hotel Boutique</span><span>12</span></div></div>
+      <div class="work" data-cat="hotel" data-lb data-lb-cap="Hotel Boutique — La spa — Time for yourself"><div class="work__media"><img data-slot="14-13" src="immagini/arch-13.jpg" alt="La spa — Time for yourself" loading="lazy"></div><div class="work__meta"><span>Hotel Boutique</span><span>13</span></div></div>
+      <div class="work" data-cat="hotel" data-lb data-lb-cap="Hotel Boutique — La poltrona sulla finestra ad arco"><div class="work__media"><img data-slot="14-14" src="immagini/arch-14.jpg" alt="La poltrona sulla finestra ad arco" loading="lazy"></div><div class="work__meta"><span>Hotel Boutique</span><span>14</span></div></div>
+      <div class="work" data-cat="orologi" data-lb data-lb-cap="Orologi — Sulla roccia bagnata"><div class="work__media"><img data-slot="14-15" src="immagini/arch-15.jpg" alt="Sulla roccia bagnata" loading="lazy"></div><div class="work__meta"><span>Orologi</span><span>15</span></div></div>
+      <div class="work" data-cat="orologi" data-lb data-lb-cap="Orologi — Il quadrante e la farfalla"><div class="work__media"><img data-slot="14-16" src="immagini/arch-16.jpg" alt="Il quadrante e la farfalla" loading="lazy"></div><div class="work__meta"><span>Orologi</span><span>16</span></div></div>
+      <div class="work" data-cat="orologi" data-lb data-lb-cap="Orologi — Il torrente nella nebbia"><div class="work__media"><img data-slot="14-17" src="immagini/arch-17.jpg" alt="Il torrente nella nebbia" loading="lazy"></div><div class="work__meta"><span>Orologi</span><span>17</span></div></div>
+      <div class="work" data-cat="orologi" data-lb data-lb-cap="Orologi — Il bosco, controluce"><div class="work__media"><img data-slot="14-18" src="immagini/arch-18.jpg" alt="Il bosco, controluce" loading="lazy"></div><div class="work__meta"><span>Orologi</span><span>18</span></div></div>
+    </div>
+
+    <p class="text-small" style="margin-top:var(--sp-m)">Clicca su un lavoro per aprirlo a schermo intero</p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="ui-dark section" style="text-align:center">
+  <div class="container">
+    <p class="eyebrow reveal">Il prossimo</p>
+    <p class="h-display reveal" style="margin:var(--sp-s) 0 var(--sp-m)">potrebbe essere<br>il tuo prodotto</p>
+    <a href="brief.html" class="btn btn--fill">Compila il brief<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="ui-dark footer">
+  <div class="container">
+    <div class="footer__grid" style="border-top:0; padding-top:0">
+      <div>
+        <img class="footer__logo" src="immagini/logo-wordmark-gold.png" alt="AI.CREA.IT — Digital Creator Studio" width="900" height="308">
+        <p class="body" style="margin-top:var(--sp-s); max-width:34ch">Non creiamo contenuti,<br>creiamo desiderio.</p>
+      </div>
+      <div>
+        <h4>Navigazione</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="lavori.html">Lavori</a></li>
+          <li><a href="brief.html">Brief</a></li>
+          <li><a href="index.html#prezzi">Prezzi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <ul>
+          <li><a href="mailto:ai.crea.it@gmail.com">ai.crea.it@gmail.com</a></li>
+          <li><a href="https://instagram.com/ai.crea.it" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://tiktok.com/@ai.crea.it" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 AI.CREA.IT</span>
+      <span>L'arte di farsi notare</span>
+      <a href="privacy.html">Privacy policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Anteprima lavoro">
+  <button class="modal__close" data-close-lb aria-label="Chiudi"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <button class="lightbox__nav lightbox__nav--prev" data-lb-prev aria-label="Precedente"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <div class="lightbox__stage" id="lbStage"></div>
+  <button class="lightbox__nav lightbox__nav--next" data-lb-next aria-label="Successivo"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+  <p class="lightbox__cap" id="lbCap"></p>
+</div>
+
+<div class="c-scrollbar"><div class="c-scrollbar__thumb" id="scrollThumb"></div></div>
+<button class="totop" id="toTop" aria-label="Torna su"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+
+<div class="cookie" id="cookie">
+  <p>Usiamo cookie tecnici per far funzionare il sito e cookie di analisi anonimi per capire cosa funziona. <a href="privacy.html">Privacy policy</a>.</p>
+  <button class="btn btn--fill" id="cookieOk">Accetto</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
+<script src="immagini/mappa.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

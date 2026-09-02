@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Редактор кадров — AI.CREA.IT</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --eu:#F2F5F3; --bk:#1C1B18; --em:#1F4D3A; --emb:#4CA47A; --gold:#C9A227; --bo:#6E1423;
+  --line:rgba(28,27,24,.16); --muted:rgba(28,27,24,.55);
+  --f-d:'Bodoni Moda',Georgia,serif; --f-b:'Inter',-apple-system,'Segoe UI',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--eu);color:var(--bk);font-family:var(--f-b);font-size:15px;line-height:1.55}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:var(--em)}
+
+.top{position:sticky;top:0;z-index:50;background:var(--bk);color:var(--eu);padding:14px 22px;
+  display:flex;gap:18px;align-items:center;flex-wrap:wrap;border-bottom:1px solid rgba(242,245,243,.14)}
+.top h1{font-family:var(--f-d);font-size:19px;letter-spacing:.18em;text-transform:uppercase;margin:0;font-weight:500}
+.top .sp{flex:1}
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:.72em 1.25em;border-radius:3px;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:.25s}
+.btn--fill{background:var(--emb);color:var(--bk)}
+.btn--fill:hover{background:var(--eu)}
+.btn--ghost{border:1px solid rgba(242,245,243,.3);color:var(--eu)}
+.btn--ghost:hover{border-color:var(--emb);color:var(--emb)}
+.btn--dark{background:var(--em);color:var(--eu)}
+.btn--dark:hover{background:var(--bk)}
+.btn--line{border:1px solid var(--line);color:var(--bk)}
+.btn--line:hover{border-color:var(--em);color:var(--em)}
+.badge{background:var(--gold);color:var(--bk);border-radius:99px;padding:.2em .7em;font-size:11px;letter-spacing:.1em}
+
+.wrap{max-width:1400px;margin:0 auto;padding:26px 22px 90px}
+.intro{border-left:2px solid var(--em);padding:2px 0 2px 16px;margin-bottom:26px;max-width:78ch;color:var(--muted);font-size:14px}
+.intro b{color:var(--bk);font-weight:500}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tab{padding:.6em 1.1em;border:1px solid var(--line);border-radius:3px;font-size:12px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tab.on{background:var(--em);border-color:var(--em);color:var(--eu)}
+
+.group{margin:0 0 12px;font-family:var(--f-d);font-size:15px;letter-spacing:.16em;text-transform:uppercase;
+  padding-top:22px;border-top:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin-bottom:8px}
+.card{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.card.changed{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.thumb{position:relative;background:#e9ece9;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb .tag{position:absolute;top:8px;left:8px;background:rgba(28,27,24,.82);color:var(--eu);
+  font-size:10px;letter-spacing:.12em;padding:.28em .6em;border-radius:2px}
+.thumb .vid{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(28,27,24,.45);color:var(--eu);font-size:11px;letter-spacing:.16em}
+.card .body{padding:12px 13px 13px;display:flex;flex-direction:column;gap:9px;flex:1}
+.card h3{margin:0;font-size:13.5px;font-weight:500;line-height:1.3}
+.card .meta{font-size:11.5px;color:var(--muted)}
+.card .file{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;color:var(--em);word-break:break-all}
+.card select{width:100%;padding:.5em;border:1px solid var(--line);border-radius:3px;font-size:12px;background:#fff}
+.card .row{display:flex;gap:7px;margin-top:auto}
+.card .row .btn{flex:1;justify-content:center;padding:.6em .4em;font-size:11px;letter-spacing:.08em}
+.miss{background:repeating-linear-gradient(45deg,#e9ece9 0 8px,#e2e6e2 8px 16px);
+  display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;text-align:center;padding:14px}
+
+/* редактор */
+.ov{position:fixed;inset:0;z-index:100;background:rgba(28,27,24,.93);display:none;
+  align-items:center;justify-content:center;padding:20px}
+.ov.on{display:flex}
+.ed{background:var(--eu);border-radius:6px;max-width:1000px;width:100%;max-height:94vh;overflow:auto;padding:22px}
+.ed header{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+.ed h2{font-family:var(--f-d);font-size:20px;letter-spacing:.08em;margin:0;font-weight:500}
+.ed .close{margin-left:auto;font-size:26px;line-height:1;color:var(--muted)}
+.drop{border:1.5px dashed var(--line);border-radius:5px;padding:26px;text-align:center;color:var(--muted);
+  font-size:14px;margin-bottom:16px;transition:.2s}
+.drop.hot{border-color:var(--em);background:rgba(31,77,58,.05);color:var(--em)}
+.fmt{display:flex;gap:8px;margin-bottom:12px}
+.fmt button{padding:.5em 1em;border:1px solid var(--line);border-radius:3px;font-size:12px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fmt button.on{background:var(--bk);border-color:var(--bk);color:var(--eu)}
+.stage{position:relative;background:#d9ded9;border-radius:4px;overflow:hidden;margin-bottom:12px;touch-action:none}
+.stage canvas{display:block;width:100%;height:auto;cursor:grab}
+.stage canvas:active{cursor:grabbing}
+.ctl{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:14px;font-size:12.5px;color:var(--muted)}
+.ctl input[type=range]{flex:1;min-width:180px;accent-color:var(--em)}
+.hint{background:rgba(201,162,39,.12);border-left:2px solid var(--gold);padding:10px 13px;
+  font-size:12.5px;margin-bottom:14px;color:var(--bk)}
+.acts{display:flex;gap:9px;flex-wrap:wrap}
+.tip{font-size:12px;color:var(--muted);margin-top:10px}
+
+.foot{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--bk);color:var(--eu);
+  padding:11px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:12.5px}
+.foot .sp{flex:1}
+.foot b{color:var(--gold);font-weight:500}
+@media(max-width:640px){ .wrap{padding:18px 14px 110px} .ed{padding:16px} }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <h1>Редактор кадров</h1>
+  <span class="badge" id="cnt">0 изменений</span>
+  <span class="sp"></span>
+  <button class="btn btn--ghost" id="reset">Сбросить</button>
+  <button class="btn btn--fill" id="save">Скачать mappa.js</button>
+</div>
+
+<div class="wrap">
+  <p class="intro">
+    Здесь можно <b>поменять кадры местами</b> и <b>заменить любой кадр своим фото</b> — без правки кода.<br><br>
+    <b>Поменять местами:</b> выбери другой файл в выпадающем списке под кадром. Когда закончишь — нажми «Скачать mappa.js» и положи скачанный файл в папку <code>immagini/</code> поверх старого.<br>
+    <b>Заменить своим фото:</b> нажми «Заменить», перетащи фото, подгони кадрирование и скачай. Файл скачается уже с правильным именем и размером — просто положи его в <code>immagini/</code> поверх старого. Карту в этом случае править не нужно.<br>
+    <b>Видео:</b> положи свой файл в папку <code>video/</code> и выбери его в списке.
+  </p>
+
+  <div class="tabs" id="tabs"></div>
+  <div id="list"></div>
+</div>
+
+<div class="ov" id="ov">
+  <div class="ed">
+    <header>
+      <div>
+        <h2 id="edTitle">—</h2>
+        <p class="meta" id="edMeta" style="margin:4px 0 0;color:var(--muted);font-size:12.5px"></p>
+      </div>
+      <button class="close" id="edClose" aria-label="Закрыть">&times;</button>
+    </header>
+
+    <div class="hint" id="edHint"></div>
+
+    <div class="drop" id="drop">
+      Перетащи фото сюда или <label style="color:var(--em);text-decoration:underline;cursor:pointer">выбери файл<input type="file" id="file" accept="image/*" hidden></label><br>
+      <span style="font-size:12px">Чем больше исходник, тем лучше — из большого можно вырезать, из маленького нет</span>
+    </div>
+
+    <div id="edWork" style="display:none">
+      <div class="fmt" id="fmt"></div>
+      <div class="stage"><canvas id="cv"></canvas></div>
+      <div class="ctl">
+        <span>Масштаб</span>
+        <input type="range" id="zoom" min="100" max="320" value="100">
+        <button class="btn btn--line" id="fit">По размеру</button>
+      </div>
+      <p class="tip">Тащи изображение мышкой, чтобы подвинуть. Затемнённая зона — там ляжет текст, лицо туда лучше не ставить.</p>
+      <div class="acts" id="acts"></div>
+    </div>
+  </div>
+</div>
+
+<div class="foot">
+  <span>Файл карты: <b>immagini/mappa.js</b></span>
+  <span class="sp"></span>
+  <span id="footNote">Изменения сохраняются в браузере — можно закрыть и вернуться</span>
+</div>
+
+<script>
+var SLOTS = [{"id": "01", "page": "Home", "sect": "Hero", "label": "Видео на первом экране", "kind": "video", "file": "hero", "note": "Луп без звука, 8 сек"}, {"id": "02", "page": "Home", "sect": "Chi siamo", "label": "Фон секции «о студии»", "kind": "image-fullbleed", "file": "about-bg", "note": "Текстовая панель слева — героиню держи справа"}, {"id": "04", "page": "Home", "sect": "Showreel", "label": "Showreel — фон секции", "kind": "video", "file": "showreel-loop"}, {"id": "04b", "page": "Home", "sect": "Showreel", "label": "Showreel — в модалке", "kind": "video", "file": "showreel"}, {"id": "05-1", "page": "Home", "sect": "Stile", "label": "Галерея — Profumeria", "kind": "image", "file": "stile-01", "ratio": "3:4"}, {"id": "05-2", "page": "Home", "sect": "Stile", "label": "Галерея — Gioielleria", "kind": "image", "file": "stile-02", "ratio": "3:4"}, {"id": "05-3", "page": "Home", "sect": "Stile", "label": "Галерея — Beauty", "kind": "image", "file": "stile-03", "ratio": "3:4"}, {"id": "05-4", "page": "Home", "sect": "Stile", "label": "Галерея — Matrimoni", "kind": "image", "file": "stile-04", "ratio": "3:4"}, {"id": "05-5", "page": "Home", "sect": "Stile", "label": "Галерея — Cantine", "kind": "image", "file": "stile-05", "ratio": "3:4"}, {"id": "05-6", "page": "Home", "sect": "Stile", "label": "Галерея — Hotel Boutique", "kind": "image", "file": "stile-06", "ratio": "3:4"}, {"id": "05-7", "page": "Home", "sect": "Stile", "label": "Галерея — Orologi", "kind": "image", "file": "stile-07", "ratio": "3:4"}, {"id": "05-8", "page": "Home", "sect": "Stile", "label": "Галерея — Profumeria", "kind": "image", "file": "stile-08", "ratio": "3:4"}, {"id": "06-1", "page": "Home", "sect": "Metodo", "label": "Этап 1 — Brief", "kind": "image", "file": "metodo-01", "ratio": "3:4", "note": "Все пять — одна серия, один стол и свет"}, {"id": "06-2", "page": "Home", "sect": "Metodo", "label": "Этап 2 — Concept", "kind": "image", "file": "metodo-02", "ratio": "3:4", "note": "Все пять — одна серия, один стол и свет"}, {"id": "06-3", "page": "Home", "sect": "Metodo", "label": "Этап 3 — Generazione", "kind": "image", "file": "metodo-03", "ratio": "3:4", "note": "Все пять — одна серия, один стол и свет"}, {"id": "06-4", "page": "Home", "sect": "Metodo", "label": "Этап 4 — Post-produzione", "kind": "image", "file": "metodo-04", "ratio": "3:4", "note": "Все пять — одна серия, один стол и свет"}, {"id": "06-5", "page": "Home", "sect": "Metodo", "label": "Этап 5 — Consegna", "kind": "image", "file": "metodo-05", "ratio": "3:4", "note": "Все пять — одна серия, один стол и свет"}, {"id": "07", "page": "Home", "sect": "Studio", "label": "Рабочее место", "kind": "image-fullbleed", "file": "studio", "note": "Текст слева — объект держи справа"}, {"id": "08-1", "page": "Home", "sect": "Servizi", "label": "Услуга 1 — Фотография продукта", "kind": "image-fullbleed", "file": "servizio-01", "note": "Текст слева — объект держи справа"}, {"id": "08-2", "page": "Home", "sect": "Servizi", "label": "Услуга 2 — Видео и реклама", "kind": "image-fullbleed", "file": "servizio-02", "note": "Текст слева — объект держи справа"}, {"id": "08-3", "page": "Home", "sect": "Servizi", "label": "Услуга 3 — Лица бренда", "kind": "image-fullbleed", "file": "servizio-03", "note": "Текст слева — объект держи справа"}, {"id": "08-4", "page": "Home", "sect": "Servizi", "label": "Услуга 4 — Визуальная идентичность", "kind": "image-fullbleed", "file": "servizio-04", "note": "Текст слева — объект держи справа"}, {"id": "08-5", "page": "Home", "sect": "Servizi", "label": "Услуга 5 — Консультации", "kind": "image-fullbleed", "file": "servizio-05", "note": "Текст слева — объект держи справа"}, {"id": "09-1", "page": "Home", "sect": "Тизер работ", "label": "Тизер — Profumeria", "kind": "image", "file": "nicchia-01", "ratio": "3:4"}, {"id": "09-2", "page": "Home", "sect": "Тизер работ", "label": "Тизер — Gioielleria", "kind": "image", "file": "nicchia-02", "ratio": "3:4"}, {"id": "09-3", "page": "Home", "sect": "Тизер работ", "label": "Тизер — Beauty", "kind": "image", "file": "nicchia-03", "ratio": "3:4"}, {"id": "09-4", "page": "Home", "sect": "Тизер работ", "label": "Тизер — Matrimoni", "kind": "image", "file": "nicchia-04", "ratio": "3:4"}, {"id": "09-5", "page": "Home", "sect": "Тизер работ", "label": "Тизер — Hotel Boutique", "kind": "image", "file": "nicchia-05", "ratio": "3:4"}, {"id": "09-6", "page": "Home", "sect": "Тизер работ", "label": "Тизер — Cantine", "kind": "image", "file": "nicchia-06", "ratio": "3:4"}, {"id": "09-7", "page": "Home", "sect": "Тизер работ", "label": "Тизер — Orologi", "kind": "image", "file": "nicchia-07", "ratio": "3:4"}, {"id": "10-1", "page": "Home", "sect": "Numeri", "label": "Фото рядом с цифрами", "kind": "image", "file": "numeri-01", "ratio": "3:4"}, {"id": "11", "page": "Home", "sect": "Caso", "label": "Флагманский кейс", "kind": "image-fullbleed", "file": "caso", "note": "Текст снизу слева — объект держи выше центра и правее"}, {"id": "12", "page": "Lavori", "sect": "Шапка", "label": "Фон шапки «Lavori»", "kind": "image-fullbleed", "file": "lavori-hero", "note": "Заголовок снизу слева"}, {"id": "20-01a", "page": "Lavori", "sect": "Ниша Profumeria", "label": "Profumeria — кадр 1", "kind": "image", "file": "n01-a", "ratio": "3:4"}, {"id": "20-01b", "page": "Lavori", "sect": "Ниша Profumeria", "label": "Profumeria — кадр 2", "kind": "image", "file": "n01-b", "ratio": "3:4"}, {"id": "20-01v1", "page": "Lavori", "sect": "Ниша Profumeria", "label": "Profumeria — видео 1", "kind": "video", "file": "n01-v1", "note": "16:9 горизонтальное"}, {"id": "20-01v2", "page": "Lavori", "sect": "Ниша Profumeria", "label": "Profumeria — видео 2", "kind": "video", "file": "n01-v2", "note": "16:9 горизонтальное"}, {"id": "20-02a", "page": "Lavori", "sect": "Ниша Gioielleria", "label": "Gioielleria — кадр 1", "kind": "image", "file": "n02-a", "ratio": "3:4"}, {"id": "20-02b", "page": "Lavori", "sect": "Ниша Gioielleria", "label": "Gioielleria — кадр 2", "kind": "image", "file": "n02-b", "ratio": "3:4"}, {"id": "20-02v1", "page": "Lavori", "sect": "Ниша Gioielleria", "label": "Gioielleria — видео 1", "kind": "video", "file": "n02-v1", "note": "16:9 горизонтальное"}, {"id": "20-03a", "page": "Lavori", "sect": "Ниша Beauty", "label": "Beauty — кадр 1", "kind": "image", "file": "n03-a", "ratio": "3:4"}, {"id": "20-03b", "page": "Lavori", "sect": "Ниша Beauty", "label": "Beauty — кадр 2", "kind": "image", "file": "n03-b", "ratio": "3:4"}, {"id": "20-03v1", "page": "Lavori", "sect": "Ниша Beauty", "label": "Beauty — видео 1", "kind": "video", "file": "n03-v1", "note": "16:9 горизонтальное"}, {"id": "20-03v2", "page": "Lavori", "sect": "Ниша Beauty", "label": "Beauty — видео 2", "kind": "video", "file": "n03-v2", "note": "16:9 горизонтальное"}, {"id": "20-04a", "page": "Lavori", "sect": "Ниша Matrimoni", "label": "Matrimoni — кадр 1", "kind": "image", "file": "n04-a", "ratio": "3:4"}, {"id": "20-04b", "page": "Lavori", "sect": "Ниша Matrimoni", "label": "Matrimoni — кадр 2", "kind": "image", "file": "n04-b", "ratio": "3:4"}, {"id": "20-04v1", "page": "Lavori", "sect": "Ниша Matrimoni", "label": "Matrimoni — видео 1", "kind": "video", "file": "n04-v1", "note": "16:9 горизонтальное"}, {"id": "20-04v2", "page": "Lavori", "sect": "Ниша Matrimoni", "label": "Matrimoni — видео 2", "kind": "video", "file": "n04-v2", "note": "16:9 горизонтальное"}, {"id": "20-05a", "page": "Lavori", "sect": "Ниша Cantine", "label": "Cantine — кадр 1", "kind": "image", "file": "n05-a", "ratio": "3:4"}, {"id": "20-05b", "page": "Lavori", "sect": "Ниша Cantine", "label": "Cantine — кадр 2", "kind": "image", "file": "n05-b", "ratio": "3:4"}, {"id": "20-05v1", "page": "Lavori", "sect": "Ниша Cantine", "label": "Cantine — видео 1", "kind": "video", "file": "n05-v1", "note": "16:9 горизонтальное"}, {"id": "20-05v2", "page": "Lavori", "sect": "Ниша Cantine", "label": "Cantine — видео 2", "kind": "video", "file": "n05-v2", "note": "16:9 горизонтальное"}, {"id": "20-06a", "page": "Lavori", "sect": "Ниша Hotel Boutique", "label": "Hotel Boutique — кадр 1", "kind": "image", "file": "n06-a", "ratio": "3:4"}, {"id": "20-06b", "page": "Lavori", "sect": "Ниша Hotel Boutique", "label": "Hotel Boutique — кадр 2", "kind": "image", "file": "n06-b", "ratio": "3:4"}, {"id": "20-06v1", "page": "Lavori", "sect": "Ниша Hotel Boutique", "label": "Hotel Boutique — видео 1", "kind": "video", "file": "n06-v1", "note": "16:9 горизонтальное"}, {"id": "20-06v2", "page": "Lavori", "sect": "Ниша Hotel Boutique", "label": "Hotel Boutique — видео 2", "kind": "video", "file": "n06-v2", "note": "16:9 горизонтальное"}, {"id": "20-06v3", "page": "Lavori", "sect": "Ниша Hotel Boutique", "label": "Hotel Boutique — видео 3", "kind": "video", "file": "n06-v3", "note": "16:9 горизонтальное"}, {"id": "20-06v4", "page": "Lavori", "sect": "Ниша Hotel Boutique", "label": "Hotel Boutique — видео 4", "kind": "video", "file": "n06-v4", "note": "16:9 горизонтальное"}, {"id": "20-07a", "page": "Lavori", "sect": "Ниша Orologi", "label": "Orologi — кадр 1", "kind": "image", "file": "n07-a", "ratio": "3:4"}, {"id": "20-07b", "page": "Lavori", "sect": "Ниша Orologi", "label": "Orologi — кадр 2", "kind": "image", "file": "n07-b", "ratio": "3:4"}, {"id": "20-07v1", "page": "Lavori", "sect": "Ниша Orologi", "label": "Orologi — видео 1", "kind": "video", "file": "n07-v1", "note": "9:16 вертикальное"}, {"id": "20-07v2", "page": "Lavori", "sect": "Ниша Orologi", "label": "Orologi — видео 2", "kind": "video", "file": "n07-v2", "note": "9:16 вертикальное"}, {"id": "20-07v3", "page": "Lavori", "sect": "Ниша Orologi", "label": "Orologi — видео 3", "kind": "video", "file": "n07-v3", "note": "9:16 вертикальное"}, {"id": "14-01", "page": "Lavori", "sect": "Архив", "label": "Работа 01 — Profumeria", "kind": "image", "file": "arch-01", "ratio": "3:4"}, {"id": "14-02", "page": "Lavori", "sect": "Архив", "label": "Работа 02 — Gioielleria", "kind": "image", "file": "arch-02", "ratio": "3:4"}, {"id": "14-03", "page": "Lavori", "sect": "Архив", "label": "Работа 03 — Gioielleria", "kind": "image", "file": "arch-03", "ratio": "3:4"}, {"id": "14-04", "page": "Lavori", "sect": "Архив", "label": "Работа 04 — Gioielleria", "kind": "image", "file": "arch-04", "ratio": "3:4"}, {"id": "14-05", "page": "Lavori", "sect": "Архив", "label": "Работа 05 — Gioielleria", "kind": "image", "file": "arch-05", "ratio": "3:4"}, {"id": "14-06", "page": "Lavori", "sect": "Архив", "label": "Работа 06 — Gioielleria", "kind": "image", "file": "arch-06", "ratio": "3:4"}, {"id": "14-07", "page": "Lavori", "sect": "Архив", "label": "Работа 07 — Matrimoni", "kind": "image", "file": "arch-07", "ratio": "3:4"}, {"id": "14-08", "page": "Lavori", "sect": "Архив", "label": "Работа 08 — Matrimoni", "kind": "image", "file": "arch-08", "ratio": "3:4"}, {"id": "14-09", "page": "Lavori", "sect": "Архив", "label": "Работа 09 — Hotel Boutique", "kind": "image", "file": "arch-09", "ratio": "3:4"}, {"id": "14-10", "page": "Lavori", "sect": "Архив", "label": "Работа 10 — Hotel Boutique", "kind": "image", "file": "arch-10", "ratio": "3:4"}, {"id": "14-11", "page": "Lavori", "sect": "Архив", "label": "Работа 11 — Hotel Boutique", "kind": "image", "file": "arch-11", "ratio": "3:4"}, {"id": "14-12", "page": "Lavori", "sect": "Архив", "label": "Работа 12 — Hotel Boutique", "kind": "image", "file": "arch-12", "ratio": "3:4"}, {"id": "14-13", "page": "Lavori", "sect": "Архив", "label": "Работа 13 — Hotel Boutique", "kind": "image", "file": "arch-13", "ratio": "3:4"}, {"id": "14-14", "page": "Lavori", "sect": "Архив", "label": "Работа 14 — Hotel Boutique", "kind": "image", "file": "arch-14", "ratio": "3:4"}, {"id": "14-15", "page": "Lavori", "sect": "Архив", "label": "Работа 15 — Orologi", "kind": "image", "file": "arch-15", "ratio": "3:4"}, {"id": "14-16", "page": "Lavori", "sect": "Архив", "label": "Работа 16 — Orologi", "kind": "image", "file": "arch-16", "ratio": "3:4"}, {"id": "14-17", "page": "Lavori", "sect": "Архив", "label": "Работа 17 — Orologi", "kind": "image", "file": "arch-17", "ratio": "3:4"}, {"id": "14-18", "page": "Lavori", "sect": "Архив", "label": "Работа 18 — Orologi", "kind": "image", "file": "arch-18", "ratio": "3:4"}, {"id": "15", "page": "Brief", "sect": "Шапка", "label": "Фон шапки «Brief»", "kind": "image-fullbleed", "file": "brief-hero", "note": "Заголовок снизу слева"}];
+var FILES = ["about-bg", "about-bg-mobile", "arch-01", "arch-02", "arch-03", "arch-04", "arch-05", "arch-06", "arch-07", "arch-08", "arch-09", "arch-10", "arch-11", "arch-12", "arch-13", "arch-14", "arch-15", "arch-16", "arch-17", "arch-18", "brief-hero", "brief-hero-mobile", "caso", "caso-mobile", "hero", "hero-mobile", "hero-poster", "lavori-hero", "lavori-hero-mobile", "metodo-01", "metodo-02", "metodo-03", "metodo-04", "metodo-05", "n01-a", "n01-b", "n01-v1-poster", "n01-v2-poster", "n02-a", "n02-b", "n02-v1-poster", "n03-a", "n03-b", "n03-v1-poster", "n03-v2-poster", "n04-a", "n04-b", "n04-v1-poster", "n04-v2-poster", "n05-a", "n05-b", "n05-v1-poster", "n05-v2-poster", "n06-a", "n06-b", "n06-v1-poster", "n06-v2-poster", "n06-v3-poster", "n06-v4-poster", "n07-a", "n07-b", "n07-v1-poster", "n07-v2-poster", "n07-v3-poster", "nicchia-01", "nicchia-02", "nicchia-03", "nicchia-04", "nicchia-05", "nicchia-06", "nicchia-07", "numeri-01", "og-cover", "servizio-01", "servizio-01-mobile", "servizio-02", "servizio-02-mobile", "servizio-03", "servizio-03-mobile", "servizio-04", "servizio-04-mobile", "servizio-05", "servizio-05-mobile", "showreel-loop-poster", "showreel-poster", "stile-01", "stile-02", "stile-03", "stile-04", "stile-05", "stile-06", "stile-07", "stile-08", "studio", "studio-mobile"];
+var VIDEOS = ["hero", "n01-v1", "n01-v2", "n02-v1", "n03-v1", "n03-v2", "n04-v1", "n04-v2", "n05-v1", "n05-v2", "n06-v1", "n06-v2", "n06-v3", "n06-v4", "n07-v1", "n07-v2", "n07-v3", "showreel", "showreel-loop"];
+var DEFAULT_MAP = {"01": {"v": "hero"}, "02": {"d": "about-bg", "m": "about-bg-mobile"}, "04": {"v": "showreel-loop"}, "04b": {"v": "showreel"}, "07": {"d": "studio", "m": "studio-mobile"}, "11": {"d": "caso", "m": "caso-mobile"}, "12": {"d": "lavori-hero", "m": "lavori-hero-mobile"}, "15": {"d": "brief-hero", "m": "brief-hero-mobile"}, "10-1": {"d": "numeri-01"}, "08-1": {"d": "servizio-01", "m": "servizio-01-mobile"}, "08-2": {"d": "servizio-02", "m": "servizio-02-mobile"}, "08-3": {"d": "servizio-03", "m": "servizio-03-mobile"}, "08-4": {"d": "servizio-04", "m": "servizio-04-mobile"}, "08-5": {"d": "servizio-05", "m": "servizio-05-mobile"}, "05-1": {"d": "stile-01"}, "05-2": {"d": "stile-02"}, "05-3": {"d": "stile-03"}, "05-4": {"d": "stile-04"}, "05-5": {"d": "stile-05"}, "05-6": {"d": "stile-06"}, "05-7": {"d": "stile-07"}, "05-8": {"d": "stile-08"}, "09-1": {"d": "nicchia-01"}, "09-2": {"d": "nicchia-02"}, "09-3": {"d": "nicchia-03"}, "09-4": {"d": "nicchia-04"}, "09-5": {"d": "nicchia-05"}, "09-6": {"d": "nicchia-06"}, "09-7": {"d": "nicchia-07"}, "06-1": {"d": "metodo-01"}, "06-2": {"d": "metodo-02"}, "06-3": {"d": "metodo-03"}, "06-4": {"d": "metodo-04"}, "06-5": {"d": "metodo-05"}, "20-01a": {"d": "n01-a"}, "20-01b": {"d": "n01-b"}, "20-01v1": {"v": "n01-v1"}, "20-01v2": {"v": "n01-v2"}, "20-02a": {"d": "n02-a"}, "20-02b": {"d": "n02-b"}, "20-02v1": {"v": "n02-v1"}, "20-03a": {"d": "n03-a"}, "20-03b": {"d": "n03-b"}, "20-03v1": {"v": "n03-v1"}, "20-03v2": {"v": "n03-v2"}, "20-04a": {"d": "n04-a"}, "20-04b": {"d": "n04-b"}, "20-04v1": {"v": "n04-v1"}, "20-04v2": {"v": "n04-v2"}, "20-05a": {"d": "n05-a"}, "20-05b": {"d": "n05-b"}, "20-05v1": {"v": "n05-v1"}, "20-05v2": {"v": "n05-v2"}, "20-06a": {"d": "n06-a"}, "20-06b": {"d": "n06-b"}, "20-06v1": {"v": "n06-v1"}, "20-06v2": {"v": "n06-v2"}, "20-06v3": {"v": "n06-v3"}, "20-06v4": {"v": "n06-v4"}, "20-07a": {"d": "n07-a"}, "20-07b": {"d": "n07-b"}, "20-07v1": {"v": "n07-v1"}, "20-07v2": {"v": "n07-v2"}, "20-07v3": {"v": "n07-v3"}, "14-01": {"d": "arch-01"}, "14-02": {"d": "arch-02"}, "14-03": {"d": "arch-03"}, "14-04": {"d": "arch-04"}, "14-05": {"d": "arch-05"}, "14-06": {"d": "arch-06"}, "14-07": {"d": "arch-07"}, "14-08": {"d": "arch-08"}, "14-09": {"d": "arch-09"}, "14-10": {"d": "arch-10"}, "14-11": {"d": "arch-11"}, "14-12": {"d": "arch-12"}, "14-13": {"d": "arch-13"}, "14-14": {"d": "arch-14"}, "14-15": {"d": "arch-15"}, "14-16": {"d": "arch-16"}, "14-17": {"d": "arch-17"}, "14-18": {"d": "arch-18"}};
+
+/* ---------- состояние ---------- */
+var KEY = 'aicreait_mappa_v1';
+var MAP = {};
+try { var raw = localStorage.getItem(KEY); if (raw) MAP = JSON.parse(raw); } catch (e) {}
+if (!MAP || !Object.keys(MAP).length) MAP = JSON.parse(JSON.stringify(DEFAULT_MAP));
+
+function persist(){ try { localStorage.setItem(KEY, JSON.stringify(MAP)); } catch(e){} }
+function slotById(id){ for (var i=0;i<SLOTS.length;i++) if (SLOTS[i].id===id) return SLOTS[i]; return null; }
+function changedCount(){
+  var n=0;
+  for (var k in DEFAULT_MAP){
+    var a=JSON.stringify(DEFAULT_MAP[k]||null), b=JSON.stringify(MAP[k]||null);
+    if (a!==b) n++;
+  }
+  return n;
+}
+function refreshCount(){
+  var n=changedCount();
+  document.getElementById('cnt').textContent = n===0 ? 'без изменений'
+    : n + (n===1?' изменение':(n<5?' изменения':' изменений'));
+}
+
+/* ---------- рендер списка ---------- */
+var filter = 'all';
+function ratioPad(r){
+  if (r==='1:1') return '100%';
+  if (r==='3:4') return '133.33%';
+  if (r==='4:5') return '125%';
+  return '56.25%'; /* 16:9 */
+}
+function currentFile(s){
+  var m = MAP[s.id];
+  if (!m) return s.file;
+  return m.v || m.d || s.file;
+}
+function render(){
+  var host=document.getElementById('list'); host.innerHTML='';
+  var groups={};
+  SLOTS.forEach(function(s){
+    if (filter!=='all' && s.page!==filter) return;
+    var k=s.page+' · '+s.sect;
+    (groups[k]=groups[k]||[]).push(s);
+  });
+  Object.keys(groups).forEach(function(k){
+    var h=document.createElement('h2'); h.className='group'; h.textContent=k; host.appendChild(h);
+    var grid=document.createElement('div'); grid.className='cards';
+    groups[k].forEach(function(s){ grid.appendChild(card(s)); });
+    host.appendChild(grid);
+  });
+  refreshCount();
+}
+function card(s){
+  var f=currentFile(s);
+  var el=document.createElement('div'); el.className='card';
+  if (JSON.stringify(DEFAULT_MAP[s.id]||null)!==JSON.stringify(MAP[s.id]||null)) el.className+=' changed';
+
+  var th=document.createElement('div'); th.className='thumb';
+  th.style.paddingTop = ratioPad(s.ratio || (s.kind==='image-fullbleed' ? '16:9' : '3:4'));
+  th.style.position='relative';
+  if (s.kind==='missing'){
+    th.innerHTML='<div class="miss" style="position:absolute;inset:0">нет кадра —<br>нужна генерация</div>';
+  } else if (s.kind==='video'){
+    th.innerHTML='<img src="immagini/'+f+'-poster.jpg" alt="" style="position:absolute;inset:0" '
+      +'onerror="this.style.display=\'none\'">'
+      +'<div class="vid">видео · '+f+'.mp4</div>';
+  } else {
+    th.innerHTML='<img src="immagini/'+f+'.jpg" alt="" style="position:absolute;inset:0" '
+      +'onerror="this.style.opacity=.15">';
+  }
+  var tag=document.createElement('span'); tag.className='tag'; tag.textContent=s.id; th.appendChild(tag);
+  el.appendChild(th);
+
+  var b=document.createElement('div'); b.className='body';
+  var h3=document.createElement('h3'); h3.textContent=s.label; b.appendChild(h3);
+  if (s.note){ var m=document.createElement('div'); m.className='meta'; m.textContent=s.note; b.appendChild(m); }
+  var fn=document.createElement('div'); fn.className='file';
+  fn.textContent=(s.kind==='video'?'video/':'immagini/')+f+(s.kind==='video'?'.mp4':'.jpg');
+  b.appendChild(fn);
+
+  if (s.kind!=='missing'){
+    var sel=document.createElement('select');
+    var opts = s.kind==='video' ? VIDEOS : FILES;
+    opts.forEach(function(o){
+      var op=document.createElement('option'); op.value=o; op.textContent=o;
+      if (o===f) op.selected=true; sel.appendChild(op);
+    });
+    sel.onchange=function(){
+      if (s.kind==='video') MAP[s.id]={v:sel.value};
+      else if (s.kind==='image-fullbleed'){
+        var hasMob = FILES.indexOf(sel.value+'-mobile')!==-1;
+        MAP[s.id]={d:sel.value, m: hasMob ? sel.value+'-mobile' : sel.value};
+      } else MAP[s.id]={d:sel.value};
+      persist(); render();
+    };
+    b.appendChild(sel);
+
+    var row=document.createElement('div'); row.className='row';
+    if (s.kind!=='video'){
+      var bt=document.createElement('button'); bt.className='btn btn--dark'; bt.textContent='Заменить';
+      bt.onclick=function(){ openEditor(s); }; row.appendChild(bt);
+    }
+    var rb=document.createElement('button'); rb.className='btn btn--line'; rb.textContent='Вернуть';
+    rb.onclick=function(){ MAP[s.id]=JSON.parse(JSON.stringify(DEFAULT_MAP[s.id])); persist(); render(); };
+    row.appendChild(rb);
+    b.appendChild(row);
+  }
+  el.appendChild(b);
+  return el;
+}
+
+/* вкладки */
+(function(){
+  var pages=['all']; SLOTS.forEach(function(s){ if (pages.indexOf(s.page)===-1) pages.push(s.page); });
+  var host=document.getElementById('tabs');
+  pages.forEach(function(p){
+    var b=document.createElement('button'); b.className='tab'+(p===filter?' on':'');
+    b.textContent = p==='all' ? 'Все' : p;
+    b.onclick=function(){ filter=p; document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); render(); };
+    host.appendChild(b);
+  });
+})();
+
+/* ---------- редактор кадрирования ---------- */
+var ov=document.getElementById('ov'), cv=document.getElementById('cv'), ctx=cv.getContext('2d');
+var cur=null, img=null, fmtIdx=0, states=[];
+
+var RATIOS={ '16:9':[16,9], '3:4':[3,4], '1:1':[1,1], '4:5':[4,5] };
+function formatsFor(s){
+  if (s.kind==='image-fullbleed')
+    return [ {name:'Десктоп 16:9', r:'16:9', w:1440, file:s.file},
+             {name:'Мобильный 3:4', r:'3:4', w:860, file:s.file+'-mobile'} ];
+  var r=s.ratio||'3:4';
+  var w = r==='1:1' ? 700 : (r==='4:5' ? 880 : 760);
+  return [ {name:'Формат '+r, r:r, w:w, file:s.file} ];
+}
+/* зона, где на сайте лежит текст: [x,y,w,h] в долях кадра */
+function safeZone(s){
+  if (s.kind==='image-fullbleed'){
+    if (s.sect==='Servizi') return [0,0,.52,1];
+    if (s.sect==='Chi siamo') return [0,0,.5,1];
+    return [0,.45,.6,.55];
+  }
+  return null;
+}
+
+function openEditor(s){
+  cur=s; img=null; fmtIdx=0;
+  states=formatsFor(s).map(function(){ return null; });
+  document.getElementById('edTitle').textContent=s.label;
+  document.getElementById('edMeta').textContent='Слот '+s.id+' · '+s.page+' · '+s.sect;
+  document.getElementById('edHint').textContent = s.note ? s.note : 'Подгони кадр и скачай файл.';
+  document.getElementById('edWork').style.display='none';
+  document.getElementById('drop').style.display='';
+  ov.classList.add('on');
+}
+document.getElementById('edClose').onclick=function(){ ov.classList.remove('on'); };
+ov.onclick=function(e){ if (e.target===ov) ov.classList.remove('on'); };
+
+var drop=document.getElementById('drop'), fileInput=document.getElementById('file');
+['dragenter','dragover'].forEach(function(t){ drop.addEventListener(t,function(e){e.preventDefault();drop.classList.add('hot');}); });
+['dragleave','drop'].forEach(function(t){ drop.addEventListener(t,function(e){e.preventDefault();drop.classList.remove('hot');}); });
+drop.addEventListener('drop',function(e){ if(e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change',function(){ if(fileInput.files[0]) loadFile(fileInput.files[0]); });
+
+function loadFile(f){
+  var rd=new FileReader();
+  rd.onload=function(){
+    var i=new Image();
+    i.onload=function(){
+      img=i;
+      document.getElementById('drop').style.display='none';
+      document.getElementById('edWork').style.display='';
+      buildFmtTabs(); setFormat(0);
+    };
+    i.src=rd.result;
+  };
+  rd.readAsDataURL(f);
+}
+function buildFmtTabs(){
+  var host=document.getElementById('fmt'); host.innerHTML='';
+  var fs=formatsFor(cur);
+  fs.forEach(function(f,i){
+    var b=document.createElement('button'); b.textContent=f.name;
+    b.className = i===fmtIdx ? 'on' : '';
+    b.onclick=function(){ setFormat(i); };
+    host.appendChild(b);
+  });
+  var acts=document.getElementById('acts'); acts.innerHTML='';
+  fs.forEach(function(f,i){
+    var b=document.createElement('button'); b.className='btn btn--dark';
+    b.textContent='Скачать '+f.file+'.jpg';
+    b.onclick=function(){ exportFmt(i); };
+    acts.appendChild(b);
+  });
+  if (fs.length>1){
+    var all=document.createElement('button'); all.className='btn btn--line'; all.textContent='Скачать оба';
+    all.onclick=function(){ exportFmt(0); setTimeout(function(){ exportFmt(1); }, 700); };
+    acts.appendChild(all);
+  }
+}
+function setFormat(i){
+  fmtIdx=i;
+  document.querySelectorAll('#fmt button').forEach(function(b,k){ b.className = k===i?'on':''; });
+  var f=formatsFor(cur)[i], r=RATIOS[f.r];
+  var CW=640, CH=Math.round(CW*r[1]/r[0]);
+  cv.width=CW; cv.height=CH;
+  if (!states[i]) states[i]=fitState(CW,CH);
+  draw();
+  var z=document.getElementById('zoom');
+  z.value=Math.round(states[i].s/states[i].base*100);
+}
+function fitState(CW,CH){
+  var base=Math.max(CW/img.width, CH/img.height);
+  return { base:base, s:base, x:(CW-img.width*base)/2, y:(CH-img.height*base)/2 };
+}
+function clamp(){
+  var st=states[fmtIdx], w=img.width*st.s, h=img.height*st.s;
+  st.x=Math.min(0,Math.max(cv.width-w, st.x));
+  st.y=Math.min(0,Math.max(cv.height-h, st.y));
+}
+function draw(){
+  var st=states[fmtIdx];
+  ctx.clearRect(0,0,cv.width,cv.height);
+  ctx.fillStyle='#1C1B18'; ctx.fillRect(0,0,cv.width,cv.height);
+  clamp();
+  ctx.drawImage(img, st.x, st.y, img.width*st.s, img.height*st.s);
+  var z=safeZone(cur);
+  if (z){
+    ctx.save();
+    ctx.fillStyle='rgba(28,27,24,.5)';
+    ctx.fillRect(z[0]*cv.width, z[1]*cv.height, z[2]*cv.width, z[3]*cv.height);
+    ctx.fillStyle='rgba(242,245,243,.85)'; ctx.font='11px Inter, sans-serif';
+    ctx.fillText('здесь ляжет текст', z[0]*cv.width+12, z[1]*cv.height+22);
+    ctx.restore();
+  }
+}
+/* перетаскивание */
+(function(){
+  var down=false, px=0, py=0;
+  cv.addEventListener('pointerdown',function(e){ down=true; px=e.clientX; py=e.clientY; cv.setPointerCapture(e.pointerId); });
+  cv.addEventListener('pointermove',function(e){
+    if(!down||!img) return;
+    var k=cv.width/cv.getBoundingClientRect().width;
+    states[fmtIdx].x+=(e.clientX-px)*k; states[fmtIdx].y+=(e.clientY-py)*k;
+    px=e.clientX; py=e.clientY; draw();
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(function(t){ cv.addEventListener(t,function(){down=false;}); });
+})();
+document.getElementById('zoom').addEventListener('input',function(){
+  if(!img) return;
+  var st=states[fmtIdx], old=st.s;
+  st.s=st.base*(this.value/100);
+  var cx=cv.width/2, cy=cv.height/2;
+  st.x=cx-(cx-st.x)*(st.s/old); st.y=cy-(cy-st.y)*(st.s/old);
+  draw();
+});
+document.getElementById('fit').onclick=function(){
+  if(!img) return;
+  states[fmtIdx]=fitState(cv.width,cv.height);
+  document.getElementById('zoom').value=100; draw();
+};
+
+function exportFmt(i){
+  var f=formatsFor(cur)[i], r=RATIOS[f.r];
+  var st=states[i] || (function(){ var CW=640,CH=Math.round(CW*r[1]/r[0]);
+      var save=fmtIdx; fmtIdx=i; states[i]=fitState(CW,CH); fmtIdx=save; return states[i]; })();
+  var W=f.w, H=Math.round(W*r[1]/r[0]);
+  var CW=640, k=W/CW;
+  var oc=document.createElement('canvas'); oc.width=W; oc.height=H;
+  var oct=oc.getContext('2d');
+  oct.fillStyle='#1C1B18'; oct.fillRect(0,0,W,H);
+  oct.imageSmoothingQuality='high';
+  oct.drawImage(img, st.x*k, st.y*k, img.width*st.s*k, img.height*st.s*k);
+  oc.toBlob(function(b){
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(b); a.download=f.file+'.jpg';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  }, 'image/jpeg', 0.8);
+}
+
+/* ---------- сохранение карты ---------- */
+document.getElementById('save').onclick=function(){
+  var lines=[];
+  SLOTS.forEach(function(s){
+    var v=MAP[s.id]; if(!v) return;
+    lines.push('  "'+s.id+'": '+JSON.stringify(v)+',');
+  });
+  var txt='/* ============================================================\n'
+    +'   AI.CREA.IT — карта слотов\n'
+    +'   Сгенерировано в admin.html — '+new Date().toLocaleString('ru-RU')+'\n'
+    +'   "d" — файл для десктопа   (immagini/ИМЯ.jpg)\n'
+    +'   "m" — файл для мобильного (immagini/ИМЯ.jpg)\n'
+    +'   "v" — видеофайл           (video/ИМЯ.mp4)\n'
+    +'   ============================================================ */\n'
+    +'window.MAPPA = {\n'+lines.join('\n').replace(/,$/,'')+'\n};\n';
+  var b=new Blob([txt],{type:'text/javascript'});
+  var a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='mappa.js';
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },1500);
+  document.getElementById('footNote').textContent='Скачано. Положи mappa.js в папку immagini/ поверх старого.';
+};
+document.getElementById('reset').onclick=function(){
+  if(!confirm('Вернуть все слоты к исходному состоянию?')) return;
+  MAP=JSON.parse(JSON.stringify(DEFAULT_MAP)); persist(); render();
+};
+
+render();
+</script>
+</body>
+</html>

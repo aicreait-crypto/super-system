@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brief — AI.CREA.IT</title>
+<meta name="description" content="Compila il brief: raccontaci il tuo prodotto, la nicchia e i tempi. Rispondiamo entro 24 ore nei giorni lavorativi.">
+<meta property="og:title" content="Brief — AI.CREA.IT">
+<meta property="og:description" content="Il modulo per iniziare un progetto con AI.CREA.IT.">
+<meta property="og:image" content="immagini/og-cover.jpg">
+<meta name="theme-color" content="#1C1B18">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Inter:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1 class="sr-only">Brief AI.CREA.IT — modulo di richiesta progetto per foto e video AI.</h1>
+
+<div class="preloader" id="preloader">
+  <img class="preloader__mark" src="immagini/logo-monogram-gold.png" alt="AI.CREA.IT" width="256" height="262">
+  <div class="preloader__bar"><i id="preBar"></i></div>
+  <p class="preloader__txt">AI.CREA.IT</p>
+</div>
+
+<header class="header is-solid" id="header">
+  <div class="container header__inner">
+    <a href="index.html" class="brand" aria-label="AI.CREA.IT — home">
+      <img class="brand__mark" src="immagini/logo-monogram-gold.png" alt="" width="256" height="262">
+      <span class="brand__name">AI.CREA.IT</span>
+    </a>
+    <div class="header__right">
+      <a href="lavori.html" class="header__cta is-hidden--sm-down">Vedi i lavori</a>
+      <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="modal modal--full" id="menu" role="dialog" aria-modal="true" aria-label="Menu di navigazione">
+  <div class="modal__bg" data-close-menu></div>
+  <button class="modal__close" data-close-menu aria-label="Chiudi il menu"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <div class="modal__body">
+    <div class="container" style="width:100%">
+      <ul class="menu-list">
+        <li><a href="index.html" style="--d:.05s"><span>01</span>Home</a></li>
+        <li><a href="lavori.html" style="--d:.12s"><span>02</span>Lavori</a></li>
+        <li><a href="brief.html" style="--d:.19s"><span>03</span>Brief</a></li>
+        <li><a href="index.html#prezzi" style="--d:.26s"><span>04</span>Prezzi</a></li>
+        <li><a href="index.html#chi-siamo" style="--d:.33s"><span>05</span>Chi siamo</a></li>
+      </ul>
+    </div>
+    <div class="menu-foot">
+      <a href="mailto:ai.crea.it@gmail.com">ai.crea.it@gmail.com</a>
+      <span><a href="https://instagram.com/ai.crea.it" target="_blank" rel="noopener">Instagram</a> · <a href="https://tiktok.com/@ai.crea.it" target="_blank" rel="noopener">TikTok</a></span>
+      <span>L'arte di farsi notare</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="ui-dark pagehero" style="min-height:52vh">
+  <div class="layer-bg">
+    <!-- ▼ SLOT 15 — sfondo testata Brief -->
+    <picture class="media-fill parallax-image-move" data-slot="15"><source media="(max-width:979px)" srcset="immagini/brief-hero-mobile.jpg"><img src="immagini/brief-hero.jpg" alt="AI.CREA.IT" loading="lazy"></picture>
+  </div>
+  <div class="container" style="position:relative; z-index:2">
+    <p class="eyebrow reveal">Iniziamo</p>
+    <h2 class="h-display reveal" style="margin:var(--sp-s) 0">Brief</h2>
+    <p class="lead reveal" style="max-width:50ch">Dieci minuti adesso valgono una settimana di scambi dopo. Più il brief è preciso, più il primo concept sarà vicino a quello che hai in testa.</p>
+  </div>
+</section>
+
+<!-- ============ FORM ============ -->
+<section class="ui-light section" id="modulo">
+  <div class="container">
+    <div class="grid">
+
+      <!-- colonna informativa -->
+      <div class="col-4 col-md-3">
+        <div style="position:sticky; top:calc(120px * var(--scale))">
+          <p class="eyebrow">Come funziona</p>
+          <ul class="eco__list" style="margin-top:var(--sp-s)">
+            <li><span class="eco__num">01</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">Invii il brief</span><span class="eco__desc">Arriva direttamente nella casella dello studio.</span></span></li>
+            <li><span class="eco__num">02</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">Risposta in 24h</span><span class="eco__desc">Nei giorni lavorativi, con preventivo e tempi.</span></span></li>
+            <li><span class="eco__num">03</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">Concept</span><span class="eco__desc">Approvi la direzione prima della produzione.</span></span></li>
+            <li><span class="eco__num">04</span><span><span class="eco__ttl" style="font-size:var(--fs-lead)">Consegna</span><span class="eco__desc">3–10 giorni secondo il pacchetto.</span></span></li>
+          </ul>
+          <p class="form__note" style="margin-top:var(--sp-m)">Preferisci scrivere direttamente?<br><a href="mailto:ai.crea.it@gmail.com" class="btn btn--link" style="margin-top:.6em">ai.crea.it@gmail.com</a></p>
+        </div>
+      </div>
+
+      <!-- form -->
+      <div class="col-4 col-md-8 start-md-5">
+
+        <div class="form-steps" id="formSteps">
+          <span class="is-active" data-stepdot="1">01 — Contatti</span>
+          <span data-stepdot="2">02 — Progetto</span>
+          <span data-stepdot="3">03 — Dettagli</span>
+        </div>
+
+        <!--
+          ▼▼▼ CONFIGURAZIONE INVIO EMAIL — DA FARE UNA VOLTA SOLA ▼▼▼
+          1. Vai su https://formspree.io e registrati con ai.crea.it@gmail.com (piano gratuito).
+          2. Crea un nuovo form e copia il suo endpoint: https://formspree.io/f/abcdwxyz
+          3. Incolla quell'indirizzo qui sotto al posto di FORMSPREE_ENDPOINT (attributo action).
+          Finché non lo fai, il pulsante apre comunque il client di posta con il brief già compilato.
+        -->
+        <form class="form" id="briefForm" action="https://formspree.io/f/FORMSPREE_ENDPOINT" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Nuovo brief dal sito AI.CREA.IT">
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <!-- STEP 1 -->
+          <fieldset class="form-step" data-step="1" style="border:0; padding:0; margin:0">
+            <div class="form__row form__row--2">
+              <div class="field">
+                <label for="nome">Nome e cognome <span class="req">*</span></label>
+                <input type="text" id="nome" name="Nome" required autocomplete="name" placeholder="Come ti chiami">
+                <span class="field__err">Inserisci il tuo nome</span>
+              </div>
+              <div class="field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="nome@dominio.it">
+                <span class="field__err">Inserisci un indirizzo email valido</span>
+              </div>
+            </div>
+            <div class="form__row form__row--2">
+              <div class="field">
+                <label for="telefono">Telefono / WhatsApp</label>
+                <input type="tel" id="telefono" name="Telefono" autocomplete="tel" placeholder="+39 …">
+              </div>
+              <div class="field">
+                <label for="brand">Brand o attività <span class="req">*</span></label>
+                <input type="text" id="brand" name="Brand" required placeholder="Nome del brand">
+                <span class="field__err">Indica il nome del brand</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="sito">Sito web o profilo social</label>
+              <input type="text" id="sito" name="Sito o social" placeholder="instagram.com/… oppure il sito">
+            </div>
+            <div>
+              <button type="button" class="btn btn--fill" data-next>Continua<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </fieldset>
+
+          <!-- STEP 2 -->
+          <fieldset class="form-step" data-step="2" hidden style="border:0; padding:0; margin:0">
+            <div class="field">
+              <label for="nicchia">Nicchia <span class="req">*</span></label>
+              <select id="nicchia" name="Nicchia" required>
+                <option value="">Scegli…</option>
+                <option>Profumeria</option>
+                <option>Gioielleria</option>
+                <option>Beauty / skincare</option>
+                <option>Matrimoni</option>
+                <option>Hotel boutique</option>
+                <option>Cantine / vino</option>
+                <option>Orologi / accessori</option>
+                <option>Altro</option>
+              </select>
+              <span class="field__err">Scegli una nicchia</span>
+            </div>
+
+            <div class="field">
+              <label>Pacchetto di interesse</label>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="Pacchetto" value="Starter Shot (€90–120)" id="pkg-starter"><span>Starter Shot</span></label>
+                <label class="choice"><input type="radio" name="Pacchetto" value="Monthly Studio (€220–350)" id="pkg-monthly"><span>Monthly Studio</span></label>
+                <label class="choice"><input type="radio" name="Pacchetto" value="Launch Campaign (€450–700)" id="pkg-launch"><span>Launch Campaign</span></label>
+                <label class="choice"><input type="radio" name="Pacchetto" value="Da definire insieme" id="pkg-none" checked><span>Non lo so ancora</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Cosa ti serve</label>
+              <div class="choices">
+                <label class="choice"><input type="checkbox" name="Formati" value="Foto per il feed"><span>Foto per il feed</span></label>
+                <label class="choice"><input type="checkbox" name="Formati" value="Storie e reel"><span>Storie e reel</span></label>
+                <label class="choice"><input type="checkbox" name="Formati" value="Schede e-commerce"><span>Schede e-commerce</span></label>
+                <label class="choice"><input type="checkbox" name="Formati" value="Pubblicità a pagamento"><span>Adv</span></label>
+                <label class="choice"><input type="checkbox" name="Formati" value="Stampa"><span>Stampa</span></label>
+                <label class="choice"><input type="checkbox" name="Formati" value="Volto AI del brand"><span>Volto AI</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="progetto">Racconta il progetto <span class="req">*</span></label>
+              <textarea id="progetto" name="Progetto" required rows="5" placeholder="Che prodotto è, a chi parla, che sensazione deve dare, dove verrà pubblicato."></textarea>
+              <span class="field__err">Due righe bastano, ma servono</span>
+            </div>
+
+            <div style="display:flex; gap:var(--sp-s); flex-wrap:wrap">
+              <button type="button" class="btn btn--outline" data-prev>Indietro</button>
+              <button type="button" class="btn btn--fill" data-next>Continua<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </fieldset>
+
+          <!-- STEP 3 -->
+          <fieldset class="form-step" data-step="3" hidden style="border:0; padding:0; margin:0">
+            <div class="form__row form__row--2">
+              <div class="field">
+                <label for="tempi">Quando ti serve</label>
+                <select id="tempi" name="Tempi">
+                  <option value="">Scegli…</option>
+                  <option>Entro una settimana</option>
+                  <option>Entro due o tre settimane</option>
+                  <option>Entro il mese</option>
+                  <option>Sono flessibile</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="budget">Budget indicativo</label>
+                <select id="budget" name="Budget">
+                  <option value="">Preferisco parlarne</option>
+                  <option>Fino a €120</option>
+                  <option>€120 – 250</option>
+                  <option>€250 – 450</option>
+                  <option>€450 – 700</option>
+                  <option>Oltre €700</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="riferimenti">Riferimenti visivi</label>
+              <textarea id="riferimenti" name="Riferimenti" rows="3" placeholder="Link a Pinterest, Instagram, Google Drive — solo link, non allegati."></textarea>
+              <span class="form__note">Dal modulo si possono inviare solo link. Se hai file da mostrare, caricali su Drive o WeTransfer e incolla qui il link.</span>
+            </div>
+
+            <div class="field">
+              <label for="note">Qualcos'altro che dovremmo sapere</label>
+              <textarea id="note" name="Note" rows="3" placeholder="Vincoli, cose da evitare, un brand che ti piace o che non ti piace."></textarea>
+            </div>
+
+            <div class="field">
+              <label for="canale">Come ci hai trovato</label>
+              <select id="canale" name="Canale">
+                <option value="">Scegli…</option>
+                <option>Instagram</option>
+                <option>TikTok</option>
+                <option>Passaparola</option>
+                <option>Ricerca su Google</option>
+                <option>Altro</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="choice" style="display:flex; align-items:flex-start; gap:.8em; cursor:pointer">
+                <input type="checkbox" id="privacy" name="Consenso privacy" value="Sì" required style="position:static; width:auto; height:auto; opacity:1; accent-color:#1F4D3A; margin-top:.25em">
+                <span style="border:0; padding:0; text-transform:none; letter-spacing:0; font-size:var(--fs-body); background:none!important; color:inherit!important">
+                  Acconsento al trattamento dei dati per essere ricontattato riguardo a questa richiesta. <a href="privacy.html" style="text-decoration:underline; text-underline-offset:3px">Privacy policy</a>. <span class="req">*</span>
+                </span>
+              </label>
+              <span class="field__err">Serve il consenso per poterti rispondere</span>
+            </div>
+
+            <div style="display:flex; gap:var(--sp-s); flex-wrap:wrap; align-items:center">
+              <button type="button" class="btn btn--outline" data-prev>Indietro</button>
+              <button type="submit" class="btn btn--fill" id="submitBtn">Invia il brief<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+            <p class="form__note" id="formStatus" style="margin-top:var(--sp-s)"></p>
+          </fieldset>
+        </form>
+
+        <!-- SUCCESSO -->
+        <div class="form-success" id="formSuccess">
+          <div class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+          <p class="h3">Brief ricevuto</p>
+          <p class="lead" style="margin-top:var(--sp-s); max-width:44ch; margin-inline:auto">Grazie. Rispondiamo entro 24 ore nei giorni lavorativi, con una prima direzione e un preventivo preciso.</p>
+          <div style="margin-top:var(--sp-m); display:flex; gap:var(--sp-s); justify-content:center; flex-wrap:wrap">
+            <a href="lavori.html" class="btn btn--outline">Guarda i lavori</a>
+            <a href="index.html" class="btn btn--link">Torna alla home</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ui-dark footer">
+  <div class="container">
+    <div class="footer__grid" style="border-top:0; padding-top:0">
+      <div>
+        <img class="footer__logo" src="immagini/logo-wordmark-gold.png" alt="AI.CREA.IT — Digital Creator Studio" width="900" height="308">
+        <p class="body" style="margin-top:var(--sp-s); max-width:34ch">Non creiamo contenuti,<br>creiamo desiderio.</p>
+      </div>
+      <div>
+        <h4>Navigazione</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="lavori.html">Lavori</a></li>
+          <li><a href="brief.html">Brief</a></li>
+          <li><a href="index.html#prezzi">Prezzi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <ul>
+          <li><a href="mailto:ai.crea.it@gmail.com">ai.crea.it@gmail.com</a></li>
+          <li><a href="https://instagram.com/ai.crea.it" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://tiktok.com/@ai.crea.it" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 AI.CREA.IT</span>
+      <span>L'arte di farsi notare</span>
+      <a href="privacy.html">Privacy policy</a>
+    </div>
+  </div>
+</footer>
+
+<div class="c-scrollbar"><div class="c-scrollbar__thumb" id="scrollThumb"></div></div>
+<button class="totop" id="toTop" aria-label="Torna su"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+
+<div class="cookie" id="cookie">
+  <p>Usiamo cookie tecnici per far funzionare il sito e cookie di analisi anonimi per capire cosa funziona. <a href="privacy.html">Privacy policy</a>.</p>
+  <button class="btn btn--fill" id="cookieOk">Accetto</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
+<script src="immagini/mappa.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
